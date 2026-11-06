@@ -652,3 +652,5 @@ h2{letter-spacing:-.015em}
 .m-yt{position:relative;display:block}
 .m-yt img{display:block;width:100%;height:auto}
 .m-yt-btn{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:#e62117;color:#fff;font-weight:800;padding:.7em 1.3em;border-radius:999px;box-shadow:0 6px 18px rgba(0,0,0,.3);white-space:nowrap}
+
+/* v16: hero yazisi videonun altina girmesin; menu tek satir */ @media (min-width:961px){.hero-v9 .hero-text{max-width:min(520px, calc(42vw - max(0px, (100vw - 1240px) / 2) - 72px))} .hero-v9 .lead{max-width:100%} .menu a{white-space:nowrap}} @media (min-width:961px) and (max-width:1279px){.menu{gap:4px} .menu a{font-size:13.5px;padding-left:9px;padding-right:9px}}
