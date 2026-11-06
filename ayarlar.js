@@ -38,5 +38,7 @@ window.BENTIKIR = {
        gorsel: "oyunlar/renk-avi/kapak.webp", karakter: "likir", yas: "3+ yaş", seri: "gunluk" },
   */
   OYUNLAR: [
+    { ad: "Yolcu Treni", aciklama: "Pıtır'la trene yolcu bindir, birlikte sayın.", adres: "oyunlar/yolcu-treni/",
+      gorsel: "oyunlar/yolcu-treni/kapak.webp", karakter: "pitir", yas: "3-6 yaş", seri: "sayilar" }
   ]
 };
