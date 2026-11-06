@@ -38,6 +38,7 @@
 
   /* ---- Kapıyı çal: klipten kapı sahnesi ---- */
   var vid = $('#kapi');
+  if (vid) {
   function knockPlay() {
     if (current) { current.pause(); }
     try { vid.pause(); vid.currentTime = 0; vid.muted = false; vid.play().catch(function () {}); } catch (e) {}
@@ -50,6 +51,7 @@
   else {
     // Sayfa açılınca sessiz bir kez oynar, son karede (Tıkır kapıda) durur
     setTimeout(function () { vid.play().catch(function () { vid.setAttribute('poster', 'assets/kapi-son.webp'); }); }, 500);
+  }
   }
 
   /* ---- Klip süzgeci ---- */
@@ -119,6 +121,7 @@
 
   /* ---- Oyunlar (ayarlar.js > OYUNLAR) ---- */
   var games = $('#games'), OY = A.OYUNLAR || [];
+  if (games) {
   var STC = { sayilar: 'sayilar', gunluk: 'gunluk', duygular: 'duygular', merak: 'merak', ritim: 'ritim' };
   if (OY.length) {
     games.innerHTML = OY.map(function (o) {
@@ -135,6 +138,7 @@
       return '<li class="game reveal"><div class="game-card is-soon"><span class="game-img st-' + p[1] + '"><img class="game-pal" src="assets/karakterler/' + p[0] + '_el_salliyor.webp" alt="" loading="lazy"></span>' +
         '<span class="game-body"><span class="game-title">' + p[2] + '</span><span class="game-txt">Hazırlanıyor.</span><span class="game-foot"><span class="chip chip-ink">Yakında</span></span></span></div></li>';
     }).join('');
+  }
   }
 
   /* ---- Görünme animasyonu ---- */
