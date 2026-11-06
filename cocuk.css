@@ -229,3 +229,12 @@ a{color:inherit}
 .k-gname{display:block;padding:10px 6px 2px;font:800 21px/1.1 var(--head)}
 .k-gdesc{display:block;padding:2px 6px 6px;font:600 15px/1.3 var(--body,inherit);color:#4a4566}
 @media (max-width:700px){.k-shelf-top img{width:80px}.k-shelf-list{grid-template-columns:1fr;padding:16px}}
+
+/* v27: 6 istasyon; Günlük Hayat kartında üç karakter */
+.k-game .k-thumb.k-trio img{height:74%;max-width:38%;margin:0 -4%}
+.k-game .k-thumb.k-trio img:nth-child(2){height:84%;position:relative;z-index:1}
+#s-head{display:flex;align-items:flex-end}
+#s-head img+img{margin-left:-26px}
+@media (max-width:700px){#s-head img{width:64px}#s-head img+img{margin-left:-18px}}
+.k-game .k-title{white-space:normal;overflow:visible}
+@media (max-width:700px){.k-game .k-title{font-size:16px;padding:8px 6px 4px}.k-count{font-size:14px;margin-bottom:10px}}

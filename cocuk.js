@@ -135,15 +135,16 @@
   if (pv) pv.addEventListener('click', function () { slide(-1); });
   if (nx) nx.addEventListener('click', function () { slide(1); });
 
-  /* ---- Oyunlar: türlere göre raflar (ayarlar.js > OYUNLAR, her oyunun "seri" alanı) ---- */
+  /* ---- Oyunlar: istasyonlar (ayarlar.js > OYUNLAR, her oyunun "seri" alanı) ---- */
   /* Yeni tür eklemek için bu listeye bir satır eklemek yeterli. "hep: true" olanlar oyunu olmasa da "Yakında" olarak görünür. */
   var SERILER = [
-    { id: 'sayilar',  ad: 'Sayı oyunları',   kim: 'pitir', renk: '#FFB892', hep: true },
-    { id: 'merak',    ad: 'Merak oyunları',  kim: 'hisir', renk: '#AEDD6F', hep: true },
-    { id: 'ritim',    ad: 'Ritim oyunları',  kim: 'sikir', renk: '#C7B2F5', hep: true },
-    { id: 'gunluk',   ad: 'Günlük işler',    kim: 'gicir', renk: '#96D3FF' },
-    { id: 'duygular', ad: 'Duygu oyunları',  kim: 'kikir', renk: '#FFB8D4' },
-    { id: 'diger',    ad: 'Başka oyunlar',   kim: 'tikir', renk: '#BFE9A8' }
+    { id: 'sayilar',   ad: 'Sayılar',                kim: ['pitir'],                   renk: '#FFB892', hep: true },
+    { id: 'merak',     ad: 'Merak ve Fen',           kim: ['hisir'],                   renk: '#AEDD6F', hep: true },
+    { id: 'gunluk',    ad: 'Günlük Hayat',           kim: ['likir', 'gicir', 'kitir'], renk: '#96D3FF', hep: true },
+    { id: 'ritim',     ad: 'Ritim ve Hareket',       kim: ['sikir'],                   renk: '#C7B2F5', hep: true },
+    { id: 'duygular',  ad: 'Duygular ve Arkadaşlık', kim: ['kikir'],                   renk: '#FFB8D4', hep: true },
+    { id: 'sozcukler', ad: 'Sözcükler ve Sesler',    kim: ['tikir'],                   renk: '#FFE07A', hep: true },
+    { id: 'diger',     ad: 'Başka oyunlar',          kim: ['tikir'],                   renk: '#BFE9A8' }
   ];
   var games = $('#games'), OY = A.OYUNLAR || [];
   function oyunlari(id) {
@@ -158,7 +159,7 @@
       var alt = n ? '<span class="k-count">' + n + ' oyun</span>' : '<span class="k-count is-none">Yakında</span>';
       return '<li><button class="k-card k-game k-shelf-btn' + (n ? '' : ' is-soon') + '" type="button" data-seri="' + s.id + '" style="--c:' + s.renk + '"' +
         (n ? '' : ' aria-disabled="true"') + ' aria-label="' + esc(s.ad) + ', ' + (n ? n + ' oyun' : 'yakında') + '">' +
-        '<span class="k-thumb"><img src="assets/karakterler/' + s.kim + '_on.webp" alt="" loading="lazy">' +
+        '<span class="k-thumb' + (s.kim.length > 1 ? ' k-trio' : '') + '">' + s.kim.map(function (k) { return '<img src="assets/karakterler/' + k + '_on.webp" alt="" loading="lazy">'; }).join('') +
         (n ? '<span class="k-play" aria-hidden="true"></span>' : '') + '</span>' +
         '<span class="k-title">' + esc(s.ad) + '</span>' + alt + '</button></li>';
     }).join('');
@@ -170,10 +171,10 @@
       var s = SERILER.filter(function (x) { return x.id === btn.dataset.seri; })[0];
       var list = oyunlari(s.id);
       shelf.style.setProperty('--c', s.renk);
-      sHead.innerHTML = '<img src="assets/karakterler/' + s.kim + '_on.webp" alt="">';
+      sHead.innerHTML = s.kim.map(function (k) { return '<img src="assets/karakterler/' + k + '_on.webp" alt="">'; }).join('');
       sTitle.textContent = s.ad;
       sList.innerHTML = list.map(function (o) {
-        var art = o.gorsel ? encodeURI(o.gorsel) : 'assets/karakterler/' + encodeURIComponent(o.karakter || s.kim) + '_on.webp';
+        var art = o.gorsel ? encodeURI(o.gorsel) : 'assets/karakterler/' + encodeURIComponent(o.karakter || s.kim[0]) + '_on.webp';
         return '<li><a class="k-card k-gcard" href="' + encodeURI(o.adres) + '">' +
           '<span class="k-thumb"><img src="' + art + '" alt="" loading="lazy"><span class="k-play" aria-hidden="true"></span></span>' +
           '<span class="k-gname">' + esc(o.ad) + '</span>' +
