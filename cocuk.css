@@ -238,3 +238,13 @@ a{color:inherit}
 @media (max-width:700px){#s-head img{width:64px}#s-head img+img{margin-left:-18px}}
 .k-game .k-title{white-space:normal;overflow:visible}
 @media (max-width:700px){.k-game .k-title{font-size:16px;padding:8px 6px 4px}.k-count{font-size:14px;margin-bottom:10px}}
+
+/* v28: Tıkır'a dokun işareti */
+.k-tap{position:absolute;left:50%;bottom:6%;transform:translateX(-50%);display:flex;align-items:center;gap:8px;padding:7px 14px 7px 10px;border-radius:999px;background:#fff;color:var(--ink);font:800 17px/1 var(--head);box-shadow:0 6px 16px rgba(0,0,0,.18);opacity:0;pointer-events:none;transition:opacity .3s;white-space:nowrap;z-index:3}
+.k-tap i{position:relative;width:16px;height:16px;border-radius:50%;background:#EB4F2F}
+.k-tap i::before,.k-tap i::after{content:"";position:absolute;inset:0;border-radius:50%;border:3px solid #EB4F2F;animation:k-ripple 1.6s ease-out infinite}
+.k-tap i::after{animation-delay:.8s}
+.k-star.show-tap .k-tap{opacity:1}
+@keyframes k-ripple{from{transform:scale(1);opacity:.9}to{transform:scale(3);opacity:0}}
+@media (prefers-reduced-motion:reduce){.k-tap i::before,.k-tap i::after{animation:none}}
+@media (max-width:700px){.k-tap{font-size:15px;bottom:2%}}

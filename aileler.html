@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Aileler ve Öğretmenler | Ben Tıkır</title>
-<meta name="description" content="Ben Tıkır: 3-6 yaş çocuklar için sayılar, günlük hayat ve arkadaşlık üzerine özgün Türkçe şarkılar, hareketli klipler ve ekransız etkinlikler.">
+<meta name="description" content="Ben Tıkır: 3-6 yaş çocuklar için sayılar, günlük hayat ve arkadaşlık üzerine özgün Türkçe şarkılar, çizgi filmler ve ekransız etkinlikler.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Ben Tıkır · Tık tık! Kim o?">
-<meta property="og:description" content="3-6 yaş için özgün Türkçe şarkılar, klipler ve ekransız etkinlikler.">
+<meta property="og:description" content="3-6 yaş için özgün Türkçe şarkılar, çizgi filmler ve ekransız etkinlikler.">
 <meta property="og:url" content="https://bentikir.com/aileler.html">
 <meta property="og:image" content="https://bentikir.com/og.jpg">
 <meta name="theme-color" content="#7EDDD3">
@@ -24,6 +24,7 @@
   <div class="nav-in">
     <a class="brand" href="index.html" aria-label="Ben Tıkır çocuk alanı"><img src="logo.webp" alt="Ben Tıkır" width="120" height="90"></a>
     <nav class="menu" id="menu" aria-label="Aileler sayfası menüsü">
+      <a href="#icerik-bul">İçerik Bul</a>
       <a href="#sarkilar">Şarkılar</a>
       <a href="#cizgi-filmler">Çizgi Filmler</a>
       <a href="#gunler">Önemli Günler</a>
@@ -46,12 +47,49 @@
     <a class="back-kid" href="index.html">← Çocuk alanına dön</a>
     <p class="kicker">Aileler ve öğretmenler için</p>
     <h1>Ben Tıkır'ı çocuğunuzla birlikte kullanın</h1>
-    <p class="lead">Her klibin kazanımları, okul öncesi programıyla ilişkisi, ekransız görevler ve araştırmalar bu sayfada. Çocuklar için hazırlanan ana sayfada ise yalnızca resimli ve sesli düğmeler bulunuyor.</p>
+    <p class="lead">İçerikler alan uzmanları tarafından hazırlanmakta ve okul öncesi eğitim programı dikkate alınarak planlanmaktadır. Her içeriğin kazanımları, programla ilişkisi, ekransız görevler ve araştırmalar bu sayfada. Çocuklar için hazırlanan ana sayfada ise yalnızca resimli ve sesli düğmeler bulunuyor.</p>
     <ul class="facts" aria-label="Kısaca Ben Tıkır">
       <li><b>10</b><span>şarkı</span></li>
       <li><b>2</b><span>çizgi film</span></li>
       <li><b>8</b><span>karakter</span></li>
     </ul>
+  </div>
+</section>
+
+<!-- ============ İÇERİK BUL (öğretmenler için veritabanı) ============ -->
+<section id="icerik-bul" class="sec finder-sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="kicker">Öğretmenler ve aileler için</p>
+        <h2>İçerik Bul</h2>
+        <p class="sub">Bütün içerikleri konuya, öğrenme alanına, seriye ya da değere göre süzebilir, aradığınız sözcüğü yazarak bulabilirsiniz.</p>
+      </div>
+    </div>
+    <div class="finder" id="finder">
+      <label class="f-search"><span class="sr">İçeriklerde ara</span>
+        <input type="search" id="f-q" placeholder="Örnek: akran zorbalığı, temel duygular, sayma, el yıkama, değerler" autocomplete="off">
+      </label>
+      <div class="f-quick" aria-label="Sık aranan konular">
+        <button type="button" data-q="akran zorbalığı">Akran zorbalığı</button>
+        <button type="button" data-q="temel duygular">Temel duygular</button>
+        <button type="button" data-q="değerler">Değerler</button>
+        <button type="button" data-q="arkadaşlık">Arkadaşlık</button>
+        <button type="button" data-q="sayma">Sayma</button>
+        <button type="button" data-q="öz bakım">Öz bakım</button>
+      </div>
+      <div class="f-selects">
+        <label>Seri<select id="f-seri"><option value="">Hepsi</option></select></label>
+        <label>Öğrenme alanı<select id="f-alan"><option value="">Hepsi</option></select></label>
+        <label>Konu<select id="f-konu"><option value="">Hepsi</option></select></label>
+        <label>Değer<select id="f-deger"><option value="">Hepsi</option></select></label>
+        <label>Tür<select id="f-tur"><option value="">Hepsi</option></select></label>
+        <button type="button" class="f-clear" id="f-clear">Temizle</button>
+      </div>
+      <p class="f-count" id="f-count" aria-live="polite"></p>
+      <ul class="f-list" id="f-list"></ul>
+      <p class="f-note">Öğrenme alanları Millî Eğitim Bakanlığının okul öncesi eğitim programındaki yedi alana göre (Türkçe, Matematik, Fen, Sosyal, Sanat, Müzik, Hareket ve Sağlık) belirtilmiştir.</p>
+    </div>
   </div>
 </section>
 
@@ -72,8 +110,8 @@
     </div>
     <ul class="clips" id="clips">
 <li class="clip reveal" data-seri="tanitim" data-tur="">
-  <button class="clip-btn" type="button" data-klip='{&quot;no&quot;: &quot;09&quot;, &quot;ad&quot;: &quot;Tıkır ve Arkadaşları&quot;, &quot;alt&quot;: &quot;Kapıda kim var?&quot;, &quot;sure&quot;: &quot;2:12&quot;, &quot;seri&quot;: &quot;tanitim&quot;, &quot;tur&quot;: &quot;Kanal tanıtımı&quot;, &quot;yas&quot;: &quot;3+ yaş&quot;, &quot;ozet&quot;: &quot;Tık tık, kapı çalıyor! Lıkır, Kıtır, Gıcır, Pıtır, Hışır, Şıkır ve Kıkır geliyor. Her biri kendi sesiyle, kendi hareketiyle tanışıyor.&quot;, &quot;ogren&quot;: [&quot;Sekiz karakterle tanışma&quot;, &quot;Sesleri ve isimleri eşleştirme&quot;, &quot;Sayma, sorma ve dans&quot;], &quot;gorev&quot;: &quot;En çok hangi arkadaşı sevdin? Onun hareketini yap!&quot;, &quot;meb&quot;: &quot;Dil · Hareket&quot;}' aria-label="Tıkır ve Arkadaşları: ayrıntıları aç">
-    <span class="clip-img"><img src="assets/klipler/09-k.webp" srcset="assets/klipler/09-k.webp 480w, assets/klipler/09.webp 960w" sizes="(max-width:640px) 92vw, 360px" width="480" height="270" alt="Tıkır ve Arkadaşları klibinin kapak görseli" loading="lazy"><span class="dur">2:12</span><span class="play" aria-hidden="true"></span></span>
+  <button class="clip-btn" type="button" data-klip='{&quot;no&quot;: &quot;09&quot;, &quot;ad&quot;: &quot;Tıkır ve Arkadaşları&quot;, &quot;alt&quot;: &quot;Kapıda kim var?&quot;, &quot;sure&quot;: &quot;2:12&quot;, &quot;seri&quot;: &quot;tanitim&quot;, &quot;tur&quot;: &quot;Kanal tanıtımı&quot;, &quot;yas&quot;: &quot;3+ yaş&quot;, &quot;ozet&quot;: &quot;Tık tık, kapı çalıyor! Lıkır, Kıtır, Gıcır, Pıtır, Hışır, Şıkır ve Kıkır geliyor. Her biri kendi sesiyle, kendi hareketiyle tanışıyor.&quot;, &quot;ogren&quot;: [&quot;Sekiz karakterle tanışma&quot;, &quot;Sesleri ve isimleri eşleştirme&quot;, &quot;Sayma, sorma ve dans&quot;], &quot;gorev&quot;: &quot;En çok hangi arkadaşı sevdin? Onun hareketini yap!&quot;, &quot;meb&quot;: &quot;Dil · Hareket&quot;, &quot;alan&quot;: [&quot;Türkçe&quot;, &quot;Müzik&quot;, &quot;Hareket ve Sağlık&quot;], &quot;konu&quot;: [&quot;Karakterlerle tanışma&quot;, &quot;Sesler ve isimler&quot;, &quot;Dans&quot;], &quot;deger&quot;: [&quot;Arkadaşlık&quot;]}' aria-label="Tıkır ve Arkadaşları: ayrıntıları aç">
+    <span class="clip-img"><img src="assets/klipler/09-k.webp" srcset="assets/klipler/09-k.webp 480w, assets/klipler/09.webp 960w" sizes="(max-width:640px) 92vw, 360px" width="480" height="270" alt="Tıkır ve Arkadaşları içeriğinin kapak görseli" loading="lazy"><span class="dur">2:12</span><span class="play" aria-hidden="true"></span></span>
     <span class="clip-body">
       <span class="chips"><span class="chip st-tanitim">Tanışalım</span><span class="chip chip-ink">Kanal tanıtımı</span></span>
       <span class="clip-title">Tıkır ve Arkadaşları</span>
@@ -82,8 +120,8 @@
   </button>
 </li>
 <li class="clip reveal" data-seri="rutin" data-tur="">
-  <button class="clip-btn" type="button" data-klip='{&quot;no&quot;: &quot;10&quot;, &quot;ad&quot;: &quot;Günaydın!&quot;, &quot;alt&quot;: &quot;Nasıl selam verelim?&quot;, &quot;sure&quot;: &quot;2:14&quot;, &quot;seri&quot;: &quot;rutin&quot;, &quot;tur&quot;: &quot;Şarkı&quot;, &quot;yas&quot;: &quot;3+ yaş&quot;, &quot;ozet&quot;: &quot;Güne bir selamla başlayalım! El sallayarak, dans ederek, sessizce ya da arkadaşına sorup beşlik çakarak günaydın diyoruz.&quot;, &quot;ogren&quot;: [&quot;Güne selamlaşarak başlama&quot;, &quot;Farklı selam biçimleri&quot;, &quot;Beşlikten önce arkadaşına sorma&quot;], &quot;gorev&quot;: &quot;Sınıftaki ya da evdeki arkadaşına kendi seçtiğin selamı ver.&quot;, &quot;meb&quot;: &quot;Sosyal-duygusal gelişim&quot;}' aria-label="Günaydın!: ayrıntıları aç">
-    <span class="clip-img"><img src="assets/klipler/10-k.webp" srcset="assets/klipler/10-k.webp 480w, assets/klipler/10.webp 960w" sizes="(max-width:640px) 92vw, 360px" width="480" height="270" alt="Günaydın! klibinin kapak görseli" loading="lazy"><span class="dur">2:14</span><span class="play" aria-hidden="true"></span></span>
+  <button class="clip-btn" type="button" data-klip='{&quot;no&quot;: &quot;10&quot;, &quot;ad&quot;: &quot;Günaydın!&quot;, &quot;alt&quot;: &quot;Nasıl selam verelim?&quot;, &quot;sure&quot;: &quot;2:14&quot;, &quot;seri&quot;: &quot;rutin&quot;, &quot;tur&quot;: &quot;Şarkı&quot;, &quot;yas&quot;: &quot;3+ yaş&quot;, &quot;ozet&quot;: &quot;Güne bir selamla başlayalım! El sallayarak, dans ederek, sessizce ya da arkadaşına sorup beşlik çakarak günaydın diyoruz.&quot;, &quot;ogren&quot;: [&quot;Güne selamlaşarak başlama&quot;, &quot;Farklı selam biçimleri&quot;, &quot;Beşlikten önce arkadaşına sorma&quot;], &quot;gorev&quot;: &quot;Sınıftaki ya da evdeki arkadaşına kendi seçtiğin selamı ver.&quot;, &quot;meb&quot;: &quot;Sosyal-duygusal gelişim&quot;, &quot;alan&quot;: [&quot;Sosyal&quot;, &quot;Müzik&quot;, &quot;Hareket ve Sağlık&quot;], &quot;konu&quot;: [&quot;Selamlaşma&quot;, &quot;Nezaket&quot;, &quot;İzin isteme&quot;, &quot;Güne başlama rutini&quot;], &quot;deger&quot;: [&quot;Saygı&quot;, &quot;Sevgi&quot;]}' aria-label="Günaydın!: ayrıntıları aç">
+    <span class="clip-img"><img src="assets/klipler/10-k.webp" srcset="assets/klipler/10-k.webp 480w, assets/klipler/10.webp 960w" sizes="(max-width:640px) 92vw, 360px" width="480" height="270" alt="Günaydın! içeriğinin kapak görseli" loading="lazy"><span class="dur">2:14</span><span class="play" aria-hidden="true"></span></span>
     <span class="clip-body">
       <span class="chips"><span class="chip st-rutin">Günlük Rutinler</span></span>
       <span class="clip-title">Günaydın!</span>
@@ -92,8 +130,8 @@
   </button>
 </li>
 <li class="clip reveal" data-seri="rutin" data-tur="">
-  <button class="clip-btn" type="button" data-klip='{&quot;no&quot;: &quot;12&quot;, &quot;ad&quot;: &quot;Burada mısın?&quot;, &quot;alt&quot;: &quot;Resmini bul, mandalı tak, say!&quot;, &quot;sure&quot;: &quot;1:52&quot;, &quot;seri&quot;: &quot;rutin&quot;, &quot;tur&quot;: &quot;Şarkı&quot;, &quot;yas&quot;: &quot;3+ yaş&quot;, &quot;ozet&quot;: &quot;Sınıfta yoklama zamanı! Tıkır ve arkadaşları kendi resimlerini bulup ipe mandalla takıyor. Adı söylenen \&quot;Burada!\&quot; diyor, sonra hep birlikte sayıyoruz: Bugün kaç kişiyiz, kim yok?&quot;, &quot;ogren&quot;: [&quot;Adını duyunca \&quot;Burada!\&quot; deme&quot;, &quot;Kendi resmini bulma ve mandalla asma&quot;, &quot;Tek tek gösterip sayma, kim yok diye bakma&quot;], &quot;gorev&quot;: &quot;Bugün kaç kişiyiz? Mandalları tek tek göster, birlikte say.&quot;, &quot;meb&quot;: &quot;Günlük rutin · Matematik&quot;}' aria-label="Burada mısın?: ayrıntıları aç">
-    <span class="clip-img"><img src="assets/klipler/12-k.webp" srcset="assets/klipler/12-k.webp 480w, assets/klipler/12.webp 960w" sizes="(max-width:640px) 92vw, 360px" width="480" height="270" alt="Burada mısın? klibinin kapak görseli" loading="lazy"><span class="dur">1:52</span><span class="play" aria-hidden="true"></span></span>
+  <button class="clip-btn" type="button" data-klip='{&quot;no&quot;: &quot;12&quot;, &quot;ad&quot;: &quot;Burada mısın?&quot;, &quot;alt&quot;: &quot;Resmini bul, mandalı tak, say!&quot;, &quot;sure&quot;: &quot;1:52&quot;, &quot;seri&quot;: &quot;rutin&quot;, &quot;tur&quot;: &quot;Şarkı&quot;, &quot;yas&quot;: &quot;3+ yaş&quot;, &quot;ozet&quot;: &quot;Sınıfta yoklama zamanı! Tıkır ve arkadaşları kendi resimlerini bulup ipe mandalla takıyor. Adı söylenen \&quot;Burada!\&quot; diyor, sonra hep birlikte sayıyoruz: Bugün kaç kişiyiz, kim yok?&quot;, &quot;ogren&quot;: [&quot;Adını duyunca \&quot;Burada!\&quot; deme&quot;, &quot;Kendi resmini bulma ve mandalla asma&quot;, &quot;Tek tek gösterip sayma, kim yok diye bakma&quot;], &quot;gorev&quot;: &quot;Bugün kaç kişiyiz? Mandalları tek tek göster, birlikte say.&quot;, &quot;meb&quot;: &quot;Günlük rutin · Matematik&quot;, &quot;alan&quot;: [&quot;Sosyal&quot;, &quot;Matematik&quot;], &quot;konu&quot;: [&quot;Yoklama rutini&quot;, &quot;Aidiyet&quot;, &quot;Kendini tanıma&quot;, &quot;Sayma&quot;], &quot;deger&quot;: [&quot;Arkadaşlık&quot;]}' aria-label="Burada mısın?: ayrıntıları aç">
+    <span class="clip-img"><img src="assets/klipler/12-k.webp" srcset="assets/klipler/12-k.webp 480w, assets/klipler/12.webp 960w" sizes="(max-width:640px) 92vw, 360px" width="480" height="270" alt="Burada mısın? içeriğinin kapak görseli" loading="lazy"><span class="dur">1:52</span><span class="play" aria-hidden="true"></span></span>
     <span class="clip-body">
       <span class="chips"><span class="chip st-rutin">Günlük Rutinler</span></span>
       <span class="clip-title">Burada mısın?</span>
@@ -102,8 +140,8 @@
   </button>
 </li>
 <li class="clip reveal" data-seri="rutin" data-tur="">
-  <button class="clip-btn" type="button" data-klip='{&quot;no&quot;: &quot;07&quot;, &quot;ad&quot;: &quot;Ellerimizi Yıkayalım&quot;, &quot;alt&quot;: &quot;El yıkama şarkısı&quot;, &quot;sure&quot;: &quot;2:06&quot;, &quot;seri&quot;: &quot;rutin&quot;, &quot;tur&quot;: &quot;Şarkı&quot;, &quot;yas&quot;: &quot;3+ yaş&quot;, &quot;ozet&quot;: &quot;Musluğu aç, ellerini ıslat; sabunla köpürt, ovala, durula ve kurula! Tıkır ve Gıcır el yıkamanın adımlarını şarkıyla gösteriyor. Tempo sakin; lavabo başında birlikte yapmak için uygun.&quot;, &quot;ogren&quot;: [&quot;El yıkamanın 5 adımı: ıslat, köpürt, ovala, durula, kurula&quot;, &quot;Avuç içi, el üstü, parmak araları ve tırnaklar&quot;, &quot;Köpürtürken musluğu kapatma&quot;], &quot;gorev&quot;: &quot;Lavabonun başında şarkıyla birlikte ellerini yıka. İlk önce ne yaparız?&quot;, &quot;meb&quot;: &quot;Sağlık · Öz bakım&quot;}' aria-label="Ellerimizi Yıkayalım: ayrıntıları aç">
-    <span class="clip-img"><img src="assets/klipler/07-k.webp" srcset="assets/klipler/07-k.webp 480w, assets/klipler/07.webp 960w" sizes="(max-width:640px) 92vw, 360px" width="480" height="270" alt="Ellerimizi Yıkayalım klibinin kapak görseli" loading="lazy"><span class="dur">2:06</span><span class="play" aria-hidden="true"></span></span>
+  <button class="clip-btn" type="button" data-klip='{&quot;no&quot;: &quot;07&quot;, &quot;ad&quot;: &quot;Ellerimizi Yıkayalım&quot;, &quot;alt&quot;: &quot;El yıkama şarkısı&quot;, &quot;sure&quot;: &quot;2:06&quot;, &quot;seri&quot;: &quot;rutin&quot;, &quot;tur&quot;: &quot;Şarkı&quot;, &quot;yas&quot;: &quot;3+ yaş&quot;, &quot;ozet&quot;: &quot;Musluğu aç, ellerini ıslat; sabunla köpürt, ovala, durula ve kurula! Tıkır ve Gıcır el yıkamanın adımlarını şarkıyla gösteriyor. Tempo sakin; lavabo başında birlikte yapmak için uygun.&quot;, &quot;ogren&quot;: [&quot;El yıkamanın 5 adımı: ıslat, köpürt, ovala, durula, kurula&quot;, &quot;Avuç içi, el üstü, parmak araları ve tırnaklar&quot;, &quot;Köpürtürken musluğu kapatma&quot;], &quot;gorev&quot;: &quot;Lavabonun başında şarkıyla birlikte ellerini yıka. İlk önce ne yaparız?&quot;, &quot;meb&quot;: &quot;Sağlık · Öz bakım&quot;, &quot;alan&quot;: [&quot;Hareket ve Sağlık&quot;], &quot;konu&quot;: [&quot;Öz bakım&quot;, &quot;El yıkama ve hijyen&quot;, &quot;Su tasarrufu&quot;, &quot;Günlük rutin&quot;], &quot;deger&quot;: [&quot;Sorumluluk&quot;]}' aria-label="Ellerimizi Yıkayalım: ayrıntıları aç">
+    <span class="clip-img"><img src="assets/klipler/07-k.webp" srcset="assets/klipler/07-k.webp 480w, assets/klipler/07.webp 960w" sizes="(max-width:640px) 92vw, 360px" width="480" height="270" alt="Ellerimizi Yıkayalım içeriğinin kapak görseli" loading="lazy"><span class="dur">2:06</span><span class="play" aria-hidden="true"></span></span>
     <span class="clip-body">
       <span class="chips"><span class="chip st-rutin">Günlük Rutinler</span></span>
       <span class="clip-title">Ellerimizi Yıkayalım</span>
@@ -112,8 +150,8 @@
   </button>
 </li>
 <li class="clip reveal" data-seri="sayilar" data-tur="">
-  <button class="clip-btn" type="button" data-klip='{&quot;no&quot;: &quot;01&quot;, &quot;ad&quot;: &quot;Yolcu Treni&quot;, &quot;alt&quot;: &quot;1&#x27;den 10&#x27;a sayalım!&quot;, &quot;sure&quot;: &quot;1:50&quot;, &quot;seri&quot;: &quot;sayilar&quot;, &quot;tur&quot;: &quot;Şarkı&quot;, &quot;yas&quot;: &quot;4+ yaş&quot;, &quot;ozet&quot;: &quot;Tıkır&#x27;ın treni kalkıyor! Her durakta bir yolcu biniyor; başını sallıyor, kanat çırpıyor, kollarını açıyor. Hareketleri yapıp yolcuları birlikte sayıyoruz.&quot;, &quot;ogren&quot;: [&quot;1&#x27;den 10&#x27;a kadar sayma&quot;, &quot;Sayı ile miktarı eşleştirme&quot;, &quot;Taklit ve hareket: baş sallama, kanat çırpma, kol açma&quot;], &quot;gorev&quot;: &quot;10 oyuncağını sıraya diz. Trene bindirir gibi tek tek say.&quot;, &quot;meb&quot;: &quot;Matematik · MAB.1&quot;}' aria-label="Yolcu Treni: ayrıntıları aç">
-    <span class="clip-img"><img src="assets/klipler/01-k.webp" srcset="assets/klipler/01-k.webp 480w, assets/klipler/01.webp 960w" sizes="(max-width:640px) 92vw, 360px" width="480" height="270" alt="Yolcu Treni klibinin kapak görseli" loading="lazy"><span class="dur">1:50</span><span class="play" aria-hidden="true"></span></span>
+  <button class="clip-btn" type="button" data-klip='{&quot;no&quot;: &quot;01&quot;, &quot;ad&quot;: &quot;Yolcu Treni&quot;, &quot;alt&quot;: &quot;1&#x27;den 10&#x27;a sayalım!&quot;, &quot;sure&quot;: &quot;1:50&quot;, &quot;seri&quot;: &quot;sayilar&quot;, &quot;tur&quot;: &quot;Şarkı&quot;, &quot;yas&quot;: &quot;4+ yaş&quot;, &quot;ozet&quot;: &quot;Tıkır&#x27;ın treni kalkıyor! Her durakta bir yolcu biniyor; başını sallıyor, kanat çırpıyor, kollarını açıyor. Hareketleri yapıp yolcuları birlikte sayıyoruz.&quot;, &quot;ogren&quot;: [&quot;1&#x27;den 10&#x27;a kadar sayma&quot;, &quot;Sayı ile miktarı eşleştirme&quot;, &quot;Taklit ve hareket: baş sallama, kanat çırpma, kol açma&quot;], &quot;gorev&quot;: &quot;10 oyuncağını sıraya diz. Trene bindirir gibi tek tek say.&quot;, &quot;meb&quot;: &quot;Matematik · MAB.1&quot;, &quot;alan&quot;: [&quot;Matematik&quot;, &quot;Hareket ve Sağlık&quot;, &quot;Müzik&quot;], &quot;konu&quot;: [&quot;Sayma (1-10)&quot;, &quot;Sayı ve miktar eşleştirme&quot;, &quot;Taklit ve hareket&quot;, &quot;Taşıtlar: tren&quot;], &quot;deger&quot;: []}' aria-label="Yolcu Treni: ayrıntıları aç">
+    <span class="clip-img"><img src="assets/klipler/01-k.webp" srcset="assets/klipler/01-k.webp 480w, assets/klipler/01.webp 960w" sizes="(max-width:640px) 92vw, 360px" width="480" height="270" alt="Yolcu Treni içeriğinin kapak görseli" loading="lazy"><span class="dur">1:50</span><span class="play" aria-hidden="true"></span></span>
     <span class="clip-body">
       <span class="chips"><span class="chip st-sayilar">Sayılar</span></span>
       <span class="clip-title">Yolcu Treni</span>
@@ -122,8 +160,8 @@
   </button>
 </li>
 <li class="clip reveal" data-seri="sayilar" data-tur="">
-  <button class="clip-btn" type="button" data-klip='{&quot;no&quot;: &quot;02&quot;, &quot;ad&quot;: &quot;Kaç Elma Var?&quot;, &quot;alt&quot;: &quot;Göster Bul&quot;, &quot;sure&quot;: &quot;2:11&quot;, &quot;seri&quot;: &quot;sayilar&quot;, &quot;tur&quot;: &quot;Şarkı&quot;, &quot;yas&quot;: &quot;3+ yaş&quot;, &quot;ozet&quot;: &quot;Tıkır daldan elmaları topluyor, sepete koyuyor ve soruyor: Kaç tane? Parmaklarınla göster, kartını kaldır! Müzik durunca \&quot;Don!\&quot;, kıpırdamak yok.&quot;, &quot;ogren&quot;: [&quot;0&#x27;dan 5&#x27;e kadar sayma ve sıfır kavramı&quot;, &quot;Parmakla miktar gösterme&quot;, &quot;Dinleme ve durma oyunu (Don!)&quot;], &quot;gorev&quot;: &quot;Dört parmağını göster. Şimdi bir parmağını indir: kaç kaldı?&quot;, &quot;meb&quot;: &quot;Matematik&quot;}' aria-label="Kaç Elma Var?: ayrıntıları aç">
-    <span class="clip-img"><img src="assets/klipler/02-k.webp" srcset="assets/klipler/02-k.webp 480w, assets/klipler/02.webp 960w" sizes="(max-width:640px) 92vw, 360px" width="480" height="270" alt="Kaç Elma Var? klibinin kapak görseli" loading="lazy"><span class="dur">2:11</span><span class="play" aria-hidden="true"></span></span>
+  <button class="clip-btn" type="button" data-klip='{&quot;no&quot;: &quot;02&quot;, &quot;ad&quot;: &quot;Kaç Elma Var?&quot;, &quot;alt&quot;: &quot;Göster Bul&quot;, &quot;sure&quot;: &quot;2:11&quot;, &quot;seri&quot;: &quot;sayilar&quot;, &quot;tur&quot;: &quot;Şarkı&quot;, &quot;yas&quot;: &quot;3+ yaş&quot;, &quot;ozet&quot;: &quot;Tıkır daldan elmaları topluyor, sepete koyuyor ve soruyor: Kaç tane? Parmaklarınla göster, kartını kaldır! Müzik durunca \&quot;Don!\&quot;, kıpırdamak yok.&quot;, &quot;ogren&quot;: [&quot;0&#x27;dan 5&#x27;e kadar sayma ve sıfır kavramı&quot;, &quot;Parmakla miktar gösterme&quot;, &quot;Dinleme ve durma oyunu (Don!)&quot;], &quot;gorev&quot;: &quot;Dört parmağını göster. Şimdi bir parmağını indir: kaç kaldı?&quot;, &quot;meb&quot;: &quot;Matematik&quot;, &quot;alan&quot;: [&quot;Matematik&quot;, &quot;Müzik&quot;, &quot;Hareket ve Sağlık&quot;], &quot;konu&quot;: [&quot;Sayma (0-5)&quot;, &quot;Sıfır kavramı&quot;, &quot;Parmakla miktar gösterme&quot;, &quot;Dinleme ve durma (öz düzenleme)&quot;], &quot;deger&quot;: []}' aria-label="Kaç Elma Var?: ayrıntıları aç">
+    <span class="clip-img"><img src="assets/klipler/02-k.webp" srcset="assets/klipler/02-k.webp 480w, assets/klipler/02.webp 960w" sizes="(max-width:640px) 92vw, 360px" width="480" height="270" alt="Kaç Elma Var? içeriğinin kapak görseli" loading="lazy"><span class="dur">2:11</span><span class="play" aria-hidden="true"></span></span>
     <span class="clip-body">
       <span class="chips"><span class="chip st-sayilar">Sayılar</span></span>
       <span class="clip-title">Kaç Elma Var?</span>
@@ -132,8 +170,8 @@
   </button>
 </li>
 <li class="clip reveal" data-seri="sayilar" data-tur="">
-  <button class="clip-btn" type="button" data-klip='{&quot;no&quot;: &quot;03&quot;, &quot;ad&quot;: &quot;Hangisi Çok?&quot;, &quot;alt&quot;: &quot;Az mı, çok mu, eşit mi?&quot;, &quot;sure&quot;: &quot;2:32&quot;, &quot;seri&quot;: &quot;sayilar&quot;, &quot;tur&quot;: &quot;Şarkı&quot;, &quot;yas&quot;: &quot;3+ yaş&quot;, &quot;ozet&quot;: &quot;Misketler, balonlar, kurabiyeler... Tıkır ile iki grubu karşılaştırıyoruz: az mı, çok mu, yoksa eşit mi? Sağa bak, sola bak, sen de bul!&quot;, &quot;ogren&quot;: [&quot;Az, çok ve eşit kavramları&quot;, &quot;İki grubu karşılaştırma&quot;, &quot;Sağ ve sol yönleri&quot;], &quot;gorev&quot;: &quot;Oyuncak arabalarını iki gruba ayır. Hangisinde çok, hangisinde az?&quot;, &quot;meb&quot;: &quot;Matematik&quot;}' aria-label="Hangisi Çok?: ayrıntıları aç">
-    <span class="clip-img"><img src="assets/klipler/03-k.webp" srcset="assets/klipler/03-k.webp 480w, assets/klipler/03.webp 960w" sizes="(max-width:640px) 92vw, 360px" width="480" height="270" alt="Hangisi Çok? klibinin kapak görseli" loading="lazy"><span class="dur">2:32</span><span class="play" aria-hidden="true"></span></span>
+  <button class="clip-btn" type="button" data-klip='{&quot;no&quot;: &quot;03&quot;, &quot;ad&quot;: &quot;Hangisi Çok?&quot;, &quot;alt&quot;: &quot;Az mı, çok mu, eşit mi?&quot;, &quot;sure&quot;: &quot;2:32&quot;, &quot;seri&quot;: &quot;sayilar&quot;, &quot;tur&quot;: &quot;Şarkı&quot;, &quot;yas&quot;: &quot;3+ yaş&quot;, &quot;ozet&quot;: &quot;Misketler, balonlar, kurabiyeler... Tıkır ile iki grubu karşılaştırıyoruz: az mı, çok mu, yoksa eşit mi? Sağa bak, sola bak, sen de bul!&quot;, &quot;ogren&quot;: [&quot;Az, çok ve eşit kavramları&quot;, &quot;İki grubu karşılaştırma&quot;, &quot;Sağ ve sol yönleri&quot;], &quot;gorev&quot;: &quot;Oyuncak arabalarını iki gruba ayır. Hangisinde çok, hangisinde az?&quot;, &quot;meb&quot;: &quot;Matematik&quot;, &quot;alan&quot;: [&quot;Matematik&quot;], &quot;konu&quot;: [&quot;Az, çok, eşit&quot;, &quot;Karşılaştırma&quot;, &quot;Sağ ve sol (yön)&quot;], &quot;deger&quot;: []}' aria-label="Hangisi Çok?: ayrıntıları aç">
+    <span class="clip-img"><img src="assets/klipler/03-k.webp" srcset="assets/klipler/03-k.webp 480w, assets/klipler/03.webp 960w" sizes="(max-width:640px) 92vw, 360px" width="480" height="270" alt="Hangisi Çok? içeriğinin kapak görseli" loading="lazy"><span class="dur">2:32</span><span class="play" aria-hidden="true"></span></span>
     <span class="clip-body">
       <span class="chips"><span class="chip st-sayilar">Sayılar</span></span>
       <span class="clip-title">Hangisi Çok?</span>
@@ -142,8 +180,8 @@
   </button>
 </li>
 <li class="clip reveal" data-seri="sayilar" data-tur="">
-  <button class="clip-btn" type="button" data-klip='{&quot;no&quot;: &quot;04&quot;, &quot;ad&quot;: &quot;Tam Bana Göre!&quot;, &quot;alt&quot;: &quot;Büyük, orta, küçük&quot;, &quot;sure&quot;: &quot;2:26&quot;, &quot;seri&quot;: &quot;sayilar&quot;, &quot;tur&quot;: &quot;Şarkı&quot;, &quot;yas&quot;: &quot;3+ yaş&quot;, &quot;ozet&quot;: &quot;Tıkır eski bir sandık buluyor. İçinden üç şapka çıkıyor: biri çok büyük, biri çok küçük, biri tam orta! Sonra koltuklar, sonra yataklar...&quot;, &quot;ogren&quot;: [&quot;Büyük, orta, küçük kavramları&quot;, &quot;Boyuta göre sıralama&quot;, &quot;Büyük, orta ve küçük adımlarla hareket&quot;], &quot;gorev&quot;: &quot;Üç bardağı büyükten küçüğe sırala.&quot;, &quot;meb&quot;: &quot;Matematik&quot;}' aria-label="Tam Bana Göre!: ayrıntıları aç">
-    <span class="clip-img"><img src="assets/klipler/04-k.webp" srcset="assets/klipler/04-k.webp 480w, assets/klipler/04.webp 960w" sizes="(max-width:640px) 92vw, 360px" width="480" height="270" alt="Tam Bana Göre! klibinin kapak görseli" loading="lazy"><span class="dur">2:26</span><span class="play" aria-hidden="true"></span></span>
+  <button class="clip-btn" type="button" data-klip='{&quot;no&quot;: &quot;04&quot;, &quot;ad&quot;: &quot;Tam Bana Göre!&quot;, &quot;alt&quot;: &quot;Büyük, orta, küçük&quot;, &quot;sure&quot;: &quot;2:26&quot;, &quot;seri&quot;: &quot;sayilar&quot;, &quot;tur&quot;: &quot;Şarkı&quot;, &quot;yas&quot;: &quot;3+ yaş&quot;, &quot;ozet&quot;: &quot;Tıkır eski bir sandık buluyor. İçinden üç şapka çıkıyor: biri çok büyük, biri çok küçük, biri tam orta! Sonra koltuklar, sonra yataklar...&quot;, &quot;ogren&quot;: [&quot;Büyük, orta, küçük kavramları&quot;, &quot;Boyuta göre sıralama&quot;, &quot;Büyük, orta ve küçük adımlarla hareket&quot;], &quot;gorev&quot;: &quot;Üç bardağı büyükten küçüğe sırala.&quot;, &quot;meb&quot;: &quot;Matematik&quot;, &quot;alan&quot;: [&quot;Matematik&quot;, &quot;Hareket ve Sağlık&quot;], &quot;konu&quot;: [&quot;Büyük, orta, küçük&quot;, &quot;Sıralama&quot;, &quot;Boyut kavramı&quot;], &quot;deger&quot;: []}' aria-label="Tam Bana Göre!: ayrıntıları aç">
+    <span class="clip-img"><img src="assets/klipler/04-k.webp" srcset="assets/klipler/04-k.webp 480w, assets/klipler/04.webp 960w" sizes="(max-width:640px) 92vw, 360px" width="480" height="270" alt="Tam Bana Göre! içeriğinin kapak görseli" loading="lazy"><span class="dur">2:26</span><span class="play" aria-hidden="true"></span></span>
     <span class="clip-body">
       <span class="chips"><span class="chip st-sayilar">Sayılar</span></span>
       <span class="clip-title">Tam Bana Göre!</span>
@@ -152,8 +190,8 @@
   </button>
 </li>
 <li class="clip reveal" data-seri="sayilar" data-tur="">
-  <button class="clip-btn" type="button" data-klip='{&quot;no&quot;: &quot;05&quot;, &quot;ad&quot;: &quot;Sonbahar Sepeti&quot;, &quot;alt&quot;: &quot;Topla, say!&quot;, &quot;sure&quot;: &quot;1:52&quot;, &quot;seri&quot;: &quot;sayilar&quot;, &quot;tur&quot;: &quot;Şarkı&quot;, &quot;yas&quot;: &quot;3+ yaş&quot;, &quot;ozet&quot;: &quot;Bahçede sonbahar var! Tıkır ve arkadaşları nar, ayva, armut, ceviz ve elma topluyor. Topla, topla, say, say, say; koy sepete, ne kolay!&quot;, &quot;ogren&quot;: [&quot;Sonbahar meyvelerini tanıma&quot;, &quot;1&#x27;den 5&#x27;e kadar sayma&quot;, &quot;Kokla, eğil, kopar gibi hareketler&quot;], &quot;gorev&quot;: &quot;Mutfaktaki kâsede kaç meyve var? Birlikte sayın.&quot;, &quot;meb&quot;: &quot;Matematik · Fen&quot;}' aria-label="Sonbahar Sepeti: ayrıntıları aç">
-    <span class="clip-img"><img src="assets/klipler/05-k.webp" srcset="assets/klipler/05-k.webp 480w, assets/klipler/05.webp 960w" sizes="(max-width:640px) 92vw, 360px" width="480" height="270" alt="Sonbahar Sepeti klibinin kapak görseli" loading="lazy"><span class="dur">1:52</span><span class="play" aria-hidden="true"></span></span>
+  <button class="clip-btn" type="button" data-klip='{&quot;no&quot;: &quot;05&quot;, &quot;ad&quot;: &quot;Sonbahar Sepeti&quot;, &quot;alt&quot;: &quot;Topla, say!&quot;, &quot;sure&quot;: &quot;1:52&quot;, &quot;seri&quot;: &quot;sayilar&quot;, &quot;tur&quot;: &quot;Şarkı&quot;, &quot;yas&quot;: &quot;3+ yaş&quot;, &quot;ozet&quot;: &quot;Bahçede sonbahar var! Tıkır ve arkadaşları nar, ayva, armut, ceviz ve elma topluyor. Topla, topla, say, say, say; koy sepete, ne kolay!&quot;, &quot;ogren&quot;: [&quot;Sonbahar meyvelerini tanıma&quot;, &quot;1&#x27;den 5&#x27;e kadar sayma&quot;, &quot;Kokla, eğil, kopar gibi hareketler&quot;], &quot;gorev&quot;: &quot;Mutfaktaki kâsede kaç meyve var? Birlikte sayın.&quot;, &quot;meb&quot;: &quot;Matematik · Fen&quot;, &quot;alan&quot;: [&quot;Matematik&quot;, &quot;Fen&quot;], &quot;konu&quot;: [&quot;Mevsimler: sonbahar&quot;, &quot;Meyveler&quot;, &quot;Sayma (1-5)&quot;, &quot;Doğa&quot;], &quot;deger&quot;: []}' aria-label="Sonbahar Sepeti: ayrıntıları aç">
+    <span class="clip-img"><img src="assets/klipler/05-k.webp" srcset="assets/klipler/05-k.webp 480w, assets/klipler/05.webp 960w" sizes="(max-width:640px) 92vw, 360px" width="480" height="270" alt="Sonbahar Sepeti içeriğinin kapak görseli" loading="lazy"><span class="dur">1:52</span><span class="play" aria-hidden="true"></span></span>
     <span class="clip-body">
       <span class="chips"><span class="chip st-sayilar">Sayılar</span></span>
       <span class="clip-title">Sonbahar Sepeti</span>
@@ -162,8 +200,8 @@
   </button>
 </li>
 <li class="clip reveal" data-seri="gunluk" data-tur="">
-  <button class="clip-btn" type="button" data-klip='{&quot;no&quot;: &quot;06&quot;, &quot;ad&quot;: &quot;Lıkır Lıkır Süt&quot;, &quot;alt&quot;: &quot;Büyü, güçlen!&quot;, &quot;sure&quot;: &quot;1:36&quot;, &quot;seri&quot;: &quot;gunluk&quot;, &quot;tur&quot;: &quot;Şarkı&quot;, &quot;yas&quot;: &quot;3+ yaş&quot;, &quot;ozet&quot;: &quot;Tıkır sütü çok seviyor! Her gün süt içiyor, koşuyor, zıplıyor, güçleniyor. Lıkır ve Kıtır da kahvaltıya katılıyor.&quot;, &quot;ogren&quot;: [&quot;Sağlıklı beslenme alışkanlığı&quot;, &quot;Günlük rutin: kahvaltıda süt&quot;, &quot;Ritim ve tekrar ile dil gelişimi&quot;], &quot;gorev&quot;: &quot;İki bardağa farklı miktarda su koyun. Hangisinde daha çok var?&quot;, &quot;meb&quot;: &quot;Sağlık · Günlük yaşam&quot;}' aria-label="Lıkır Lıkır Süt: ayrıntıları aç">
-    <span class="clip-img"><img src="assets/klipler/06-k.webp" srcset="assets/klipler/06-k.webp 480w, assets/klipler/06.webp 960w" sizes="(max-width:640px) 92vw, 360px" width="480" height="270" alt="Lıkır Lıkır Süt klibinin kapak görseli" loading="lazy"><span class="dur">1:36</span><span class="play" aria-hidden="true"></span></span>
+  <button class="clip-btn" type="button" data-klip='{&quot;no&quot;: &quot;06&quot;, &quot;ad&quot;: &quot;Lıkır Lıkır Süt&quot;, &quot;alt&quot;: &quot;Büyü, güçlen!&quot;, &quot;sure&quot;: &quot;1:36&quot;, &quot;seri&quot;: &quot;gunluk&quot;, &quot;tur&quot;: &quot;Şarkı&quot;, &quot;yas&quot;: &quot;3+ yaş&quot;, &quot;ozet&quot;: &quot;Tıkır sütü çok seviyor! Her gün süt içiyor, koşuyor, zıplıyor, güçleniyor. Lıkır ve Kıtır da kahvaltıya katılıyor.&quot;, &quot;ogren&quot;: [&quot;Sağlıklı beslenme alışkanlığı&quot;, &quot;Günlük rutin: kahvaltıda süt&quot;, &quot;Ritim ve tekrar ile dil gelişimi&quot;], &quot;gorev&quot;: &quot;İki bardağa farklı miktarda su koyun. Hangisinde daha çok var?&quot;, &quot;meb&quot;: &quot;Sağlık · Günlük yaşam&quot;, &quot;alan&quot;: [&quot;Hareket ve Sağlık&quot;, &quot;Türkçe&quot;, &quot;Müzik&quot;], &quot;konu&quot;: [&quot;Sağlıklı beslenme&quot;, &quot;Kahvaltı&quot;, &quot;Günlük rutin&quot;], &quot;deger&quot;: [&quot;Sorumluluk&quot;]}' aria-label="Lıkır Lıkır Süt: ayrıntıları aç">
+    <span class="clip-img"><img src="assets/klipler/06-k.webp" srcset="assets/klipler/06-k.webp 480w, assets/klipler/06.webp 960w" sizes="(max-width:640px) 92vw, 360px" width="480" height="270" alt="Lıkır Lıkır Süt içeriğinin kapak görseli" loading="lazy"><span class="dur">1:36</span><span class="play" aria-hidden="true"></span></span>
     <span class="clip-body">
       <span class="chips"><span class="chip st-gunluk">Günlük Hayat</span></span>
       <span class="clip-title">Lıkır Lıkır Süt</span>
@@ -187,7 +225,7 @@
     </div>
     <div class="cfs">
 <article class="cf reveal">
-  <button class="cf-btn clip-btn" type="button" data-klip='{&quot;no&quot;: &quot;11&quot;, &quot;ad&quot;: &quot;Tıkır&#x27;la İlk Buluşma&quot;, &quot;alt&quot;: &quot;Yeni arkadaşlar, top oyunu&quot;, &quot;sure&quot;: &quot;2:55&quot;, &quot;seri&quot;: &quot;duygular&quot;, &quot;tur&quot;: &quot;Çizgi film&quot;, &quot;yas&quot;: &quot;3+ yaş&quot;, &quot;ozet&quot;: &quot;Tıkır parka topuyla geliyor ve birlikte oynayacak bir arkadaş arıyor. Pıtır ve Kıkır ile tanışıyor; çekingen Kıkır&#x27;a yer açıp sabırla bekliyorlar.&quot;, &quot;ogren&quot;: [&quot;Yeni bir arkadaşla tanışma&quot;, &quot;Çekingen bir arkadaşa yer açma&quot;, &quot;Sıra bekleme, birlikte çözüm bulma&quot;], &quot;gorev&quot;: &quot;Bir arkadaşınla topu yuvarlayın; her atışta onun adını söyle.&quot;, &quot;meb&quot;: &quot;Sosyal-duygusal gelişim&quot;}' aria-label="Tıkır&#x27;la İlk Buluşma: ayrıntıları aç">
+  <button class="cf-btn clip-btn" type="button" data-klip='{&quot;no&quot;: &quot;11&quot;, &quot;ad&quot;: &quot;Tıkır&#x27;la İlk Buluşma&quot;, &quot;alt&quot;: &quot;Yeni arkadaşlar, top oyunu&quot;, &quot;sure&quot;: &quot;2:55&quot;, &quot;seri&quot;: &quot;duygular&quot;, &quot;tur&quot;: &quot;Çizgi film&quot;, &quot;yas&quot;: &quot;3+ yaş&quot;, &quot;ozet&quot;: &quot;Tıkır parka topuyla geliyor ve birlikte oynayacak bir arkadaş arıyor. Pıtır ve Kıkır ile tanışıyor; çekingen Kıkır&#x27;a yer açıp sabırla bekliyorlar.&quot;, &quot;ogren&quot;: [&quot;Yeni bir arkadaşla tanışma&quot;, &quot;Çekingen bir arkadaşa yer açma&quot;, &quot;Sıra bekleme, birlikte çözüm bulma&quot;], &quot;gorev&quot;: &quot;Bir arkadaşınla topu yuvarlayın; her atışta onun adını söyle.&quot;, &quot;meb&quot;: &quot;Sosyal-duygusal gelişim&quot;, &quot;alan&quot;: [&quot;Sosyal&quot;, &quot;Türkçe&quot;], &quot;konu&quot;: [&quot;Tanışma&quot;, &quot;Çekingenlik ve utangaçlık&quot;, &quot;Oyuna katma&quot;, &quot;Sıra bekleme&quot;, &quot;Temel duygular&quot;], &quot;deger&quot;: [&quot;Arkadaşlık&quot;, &quot;Sabır&quot;, &quot;Empati&quot;, &quot;Paylaşma&quot;]}' aria-label="Tıkır&#x27;la İlk Buluşma: ayrıntıları aç">
     <span class="clip-img"><img src="assets/klipler/11.webp" width="960" height="540" alt="Tıkır&#x27;la İlk Buluşma çizgi filminin kapak görseli" loading="lazy"><span class="dur">2:55</span><span class="play" aria-hidden="true"></span></span>
     <span class="cf-body">
       <span class="chips"><span class="chip chip-ink">1. bölüm</span><span class="chip st-duygular">Duygular ve Arkadaşlık</span></span>
@@ -198,7 +236,7 @@
   </button>
 </article>
 <article class="cf reveal">
-  <button class="cf-btn clip-btn" type="button" data-klip='{&quot;no&quot;: &quot;13&quot;, &quot;ad&quot;: &quot;Lıkır&#x27;ın Bulutu&quot;, &quot;alt&quot;: &quot;\&quot;Yapma\&quot; deyince dururuz&quot;, &quot;sure&quot;: &quot;2:55&quot;, &quot;seri&quot;: &quot;duygular&quot;, &quot;tur&quot;: &quot;Çizgi film&quot;, &quot;yas&quot;: &quot;3+ yaş&quot;, &quot;ozet&quot;: &quot;Tıkır, Lıkır ve Şıkır bahçede köpük balonu uçuruyor. Şıkır, Lıkır&#x27;ın komik sesini taklit etmeye devam edince Lıkır&#x27;ın keyfi kaçıyor. Arkadaşımız \&quot;yapma\&quot; dediğinde ne yaparız?&quot;, &quot;ogren&quot;: [&quot;Arkadaşımız \&quot;yapma\&quot; dediğinde durmak&quot;, &quot;Özür dilemek ve biraz zaman tanımak&quot;, &quot;Birlikte oynamanın keyfi&quot;], &quot;gorev&quot;: &quot;Bir arkadaşınla oyna. O \&quot;yapma\&quot; derse hemen dur ve ona ne istediğini sor.&quot;, &quot;meb&quot;: &quot;Sosyal-duygusal gelişim&quot;}' aria-label="Lıkır&#x27;ın Bulutu: ayrıntıları aç">
+  <button class="cf-btn clip-btn" type="button" data-klip='{&quot;no&quot;: &quot;13&quot;, &quot;ad&quot;: &quot;Lıkır&#x27;ın Bulutu&quot;, &quot;alt&quot;: &quot;\&quot;Yapma\&quot; deyince dururuz&quot;, &quot;sure&quot;: &quot;2:55&quot;, &quot;seri&quot;: &quot;duygular&quot;, &quot;tur&quot;: &quot;Çizgi film&quot;, &quot;yas&quot;: &quot;3+ yaş&quot;, &quot;ozet&quot;: &quot;Tıkır, Lıkır ve Şıkır bahçede köpük balonu uçuruyor. Şıkır, Lıkır&#x27;ın komik sesini taklit etmeye devam edince Lıkır&#x27;ın keyfi kaçıyor. Arkadaşımız \&quot;yapma\&quot; dediğinde ne yaparız?&quot;, &quot;ogren&quot;: [&quot;Arkadaşımız \&quot;yapma\&quot; dediğinde durmak&quot;, &quot;Özür dilemek ve biraz zaman tanımak&quot;, &quot;Birlikte oynamanın keyfi&quot;], &quot;gorev&quot;: &quot;Bir arkadaşınla oyna. O \&quot;yapma\&quot; derse hemen dur ve ona ne istediğini sor.&quot;, &quot;meb&quot;: &quot;Sosyal-duygusal gelişim&quot;, &quot;alan&quot;: [&quot;Sosyal&quot;, &quot;Türkçe&quot;], &quot;konu&quot;: [&quot;Akran zorbalığı: alay etme ve taklit&quot;, &quot;\&quot;Yapma\&quot; deyince durmak&quot;, &quot;Özür dileme&quot;, &quot;Temel duygular: üzüntü, kırılma&quot;], &quot;deger&quot;: [&quot;Saygı&quot;, &quot;Empati&quot;, &quot;Arkadaşlık&quot;]}' aria-label="Lıkır&#x27;ın Bulutu: ayrıntıları aç">
     <span class="clip-img"><img src="assets/klipler/13.webp" width="960" height="540" alt="Lıkır&#x27;ın Bulutu çizgi filminin kapak görseli" loading="lazy"><span class="dur">2:55</span><span class="play" aria-hidden="true"></span></span>
     <span class="cf-body">
       <span class="chips"><span class="chip chip-ink">2. bölüm</span><span class="chip st-duygular">Duygular ve Arkadaşlık</span></span>
@@ -230,7 +268,7 @@
     </div>
     <ul class="days">
 <li class="day reveal">
-  <button class="day-card clip-btn" type="button" data-klip='{&quot;no&quot;: &quot;g10k&quot;, &quot;ad&quot;: &quot;10 Kasım&quot;, &quot;alt&quot;: &quot;Atam Her Gün Bizimle&quot;, &quot;sure&quot;: &quot;2:30&quot;, &quot;seri&quot;: &quot;gunler&quot;, &quot;tur&quot;: &quot;Çizgi film ve şarkı&quot;, &quot;yas&quot;: &quot;3+ yaş&quot;, &quot;ozet&quot;: &quot;Tıkır, Pıtır ve Lıkır bahçede yarıya indirilmiş bayrağı görüyor. Bugün 10 Kasım. Tıkır arkadaşlarına Atatürk&#x27;ü nasıl andığımızı anlatıyor: saat dokuzu beş geçe sirenler çalar, dimdik ve sessiz dururuz. Saygı duruşundan sonra üç arkadaş \&quot;Atam Her Gün Bizimle\&quot; şarkısını söylüyor.&quot;, &quot;ogren&quot;: [&quot;10 Kasım&#x27;da bayrağın neden yarıya indirildiği&quot;, &quot;Saygı duruşu: dimdik ve sessiz durmak&quot;, &quot;Atatürk&#x27;ü sevgiyle anmak&quot;], &quot;gorev&quot;: &quot;Ailenle birlikte \&quot;Atam Her Gün Bizimle\&quot; şarkısını söyleyin.&quot;, &quot;meb&quot;: &quot;Belirli gün ve haftalar&quot;}' aria-label="10 Kasım: izle">
+  <button class="day-card clip-btn" type="button" data-klip='{&quot;no&quot;: &quot;g10k&quot;, &quot;ad&quot;: &quot;10 Kasım&quot;, &quot;alt&quot;: &quot;Atam Her Gün Bizimle&quot;, &quot;sure&quot;: &quot;2:30&quot;, &quot;seri&quot;: &quot;gunler&quot;, &quot;tur&quot;: &quot;Çizgi film ve şarkı&quot;, &quot;yas&quot;: &quot;3+ yaş&quot;, &quot;ozet&quot;: &quot;Tıkır, Pıtır ve Lıkır bahçede yarıya indirilmiş bayrağı görüyor. Bugün 10 Kasım. Tıkır arkadaşlarına Atatürk&#x27;ü nasıl andığımızı anlatıyor: saat dokuzu beş geçe sirenler çalar, dimdik ve sessiz dururuz. Saygı duruşundan sonra üç arkadaş \&quot;Atam Her Gün Bizimle\&quot; şarkısını söylüyor.&quot;, &quot;ogren&quot;: [&quot;10 Kasım&#x27;da bayrağın neden yarıya indirildiği&quot;, &quot;Saygı duruşu: dimdik ve sessiz durmak&quot;, &quot;Atatürk&#x27;ü sevgiyle anmak&quot;], &quot;gorev&quot;: &quot;Ailenle birlikte \&quot;Atam Her Gün Bizimle\&quot; şarkısını söyleyin.&quot;, &quot;meb&quot;: &quot;Belirli gün ve haftalar&quot;, &quot;alan&quot;: [&quot;Sosyal&quot;, &quot;Müzik&quot;], &quot;konu&quot;: [&quot;Belirli gün ve haftalar&quot;, &quot;10 Kasım Atatürk&#x27;ü Anma&quot;, &quot;Saygı duruşu&quot;, &quot;Atatürk&quot;], &quot;deger&quot;: [&quot;Saygı&quot;, &quot;Sevgi&quot;, &quot;Vatanseverlik&quot;]}' aria-label="10 Kasım: izle">
     <span class="day-date"><b>10</b>Kasım</span>
     <span class="clip-img"><img src="assets/klipler/g10k-k.webp" srcset="assets/klipler/g10k-k.webp 480w, assets/klipler/g10k.webp 960w" sizes="(max-width:640px) 92vw, 380px" width="480" height="270" alt="10 Kasım kapak görseli" loading="lazy"><span class="dur">2:30</span><span class="play" aria-hidden="true"></span></span>
     <span class="clip-body"><span class="chips"><span class="chip chip-ink">Çizgi film ve şarkı</span></span><span class="clip-title">10 Kasım</span><span class="clip-sub">Atam Her Gün Bizimle</span></span>
@@ -268,7 +306,7 @@
       <div>
         <p class="kicker">Ne öğreniyoruz?</p>
         <h2>Altı seri, tek bir dünya</h2>
-        <p class="sub">Her klip bir seriye ait ve okul öncesi programındaki bir öğrenme alanı dikkate alınarak planlanıyor.</p>
+        <p class="sub">Her içerik bir seriye ait ve okul öncesi programındaki bir öğrenme alanı dikkate alınarak planlanıyor.</p>
       </div>
     </div>
     <div class="bento">
@@ -314,7 +352,7 @@
       <div>
         <p class="kicker">Ekranı kapat, oyna!</p>
         <h2>Şimdi sıra sende</h2>
-        <p class="sub">Her klibin sonunda Tıkır bir görev verir. Görevler evde ya da sınıfta, ekran olmadan yapılır.</p>
+        <p class="sub">Her içeriğin sonunda Tıkır bir görev verir. Görevler evde ya da sınıfta, ekran olmadan yapılır.</p>
       </div>
     </div>
     <ul class="tasks">
@@ -348,7 +386,7 @@
       <div class="pack-text">
         <span class="chip chip-ink">Hazırlanıyor</span>
         <h3>Etkinlik paketleri</h3>
-        <p>Her klip için bir iki derste kullanılabilecek, okul öncesi programıyla uyumlu kapsamlı bir etkinlik paketi hazırlanmaktadır: boyama sayfaları, sayma kartları, oyun tahtaları ve öğretmen için ders akışı. İlk paket Yolcu Treni için düşünülmektedir.</p>
+        <p>Her içerik için bir iki derste kullanılabilecek, okul öncesi programıyla uyumlu kapsamlı bir etkinlik paketi hazırlanmaktadır: boyama sayfaları, sayma kartları, oyun tahtaları ve öğretmen için ders akışı. İlk paket Yolcu Treni için düşünülmektedir.</p>
       </div>
       <div class="pack-art" aria-hidden="true">
         <img src="assets/klipler/01-k.webp" alt="" width="480" height="270" loading="lazy">
@@ -368,10 +406,11 @@
         <h2>Kısa izle, birlikte konuş, sonra oyna</h2>
       </div>
     </div>
-    <div class="grid4">
-      <article class="d-card reveal"><span class="d-ico" aria-hidden="true">⏱️</span><h3>Kısa klipler</h3><p>Klipler 1,5-3 dakika sürüyor. Aile ve Sosyal Hizmetler Bakanlığı 3 yaş için günde en fazla 30, 6 yaş için en fazla 60 dakika ekran süresi öneriyor.</p></article>
-      <article class="d-card reveal"><span class="d-ico" aria-hidden="true">👨‍👧</span><h3>Birlikte izleme</h3><p>Klibi durdurup "Kaç tane?", "Sonra ne yapacağız?" diye sormak izlemeyi öğrenmeye dönüştürür. Her klibin ayrıntısında konuşabileceğiniz konular var.</p></article>
+    <div class="grid4 grid5">
+      <article class="d-card reveal"><span class="d-ico" aria-hidden="true">⏱️</span><h3>Kısa içerikler</h3><p>İçerikler 1,5-3 dakika sürüyor. Aile ve Sosyal Hizmetler Bakanlığı 3 yaş için günde en fazla 30, 6 yaş için en fazla 60 dakika ekran süresi öneriyor.</p></article>
+      <article class="d-card reveal"><span class="d-ico" aria-hidden="true">👨‍👧</span><h3>Birlikte izleme</h3><p>İçeriği durdurup "Kaç tane?", "Sonra ne yapacağız?" diye sormak izlemeyi öğrenmeye dönüştürür. Her içeriğin ayrıntısında konuşabileceğiniz konular var.</p></article>
       <article class="d-card reveal"><span class="d-ico" aria-hidden="true">🏫</span><h3>Sınıfta kullanım</h3><p>Günlük rutin şarkıları her gün aynı geçişte (sabah, el yıkama) söylenecek biçimde hazırlandı. Kavram şarkılarından sonra somut materyalle çalışmayı öneriyoruz.</p></article>
+      <article class="d-card reveal"><span class="d-ico" aria-hidden="true">🎓</span><h3>Alan uzmanlarınca hazırlanır</h3><p>İçerikler alan uzmanları tarafından hazırlanmaktadır. Her içerik bir seriye ait ve okul öncesi programındaki bir öğrenme alanı dikkate alınarak planlanmaktadır.</p></article>
       <article class="d-card reveal"><span class="d-ico" aria-hidden="true">🛡️</span><h3>Güvenli site</h3><p>Bu site üyelik ya da form içermez ve çocuklardan bilgi toplamaz. Videolar YouTube'un gelişmiş gizlilik moduyla gösterilir.</p></article>
     </div>
 
@@ -384,13 +423,18 @@
     <div class="sec-head">
       <div>
         <p class="kicker">Araştırmalar ne diyor?</p>
-        <h2>Kliplerimizi nasıl tasarlıyoruz?</h2>
+        <h2>İçeriklerimizi nasıl tasarlıyoruz?</h2>
+        <p class="sub">İçeriklerimiz ekranla bitmiyor: her biri, ekran kapandıktan sonra oyun, hareket ve somut materyalle sürdürülen ekransız etkinliklerle birlikte tasarlanmaktadır. Bu yaklaşımı aşağıdaki araştırmalara dayandırıyoruz.</p>
       </div>
     </div>
     <div class="research">
       <article class="r-card reveal"><span class="r-tag">Duraklama</span><h3>"Sen söyle!" anları</h3><p>Sunucunun soru sorup cevap beklediği programlarda çocukların sesli katılımı artıyor. Bu yüzden şarkılarımızda çocuğun cevap vereceği kısa boşluklar var.</p><p class="cite">Anderson ve ark., 2000, <i>Media Psychology</i> · <a href="https://doi.org/10.1207/S1532785XMEP0202_4" rel="noopener" target="_blank">doi</a></p></article>
-      <article class="r-card reveal"><span class="r-tag">Tekrar</span><h3>Aynı klip, birkaç kez</h3><p>Aynı bölümü beş gün üst üste izleyen 3-5 yaş çocukların anlaması ve katılımı arttı. Her klibin bir hafta boyunca tekrar edilmesini öneriyoruz.</p><p class="cite">Crawley ve ark., 1999, <i>Journal of Educational Psychology</i> · <a href="https://doi.org/10.1037/0022-0663.91.4.630" rel="noopener" target="_blank">doi</a></p></article>
+      <article class="r-card reveal"><span class="r-tag">Tekrar</span><h3>Aynı içerik, birkaç kez</h3><p>Aynı bölümü beş gün üst üste izleyen 3-5 yaş çocukların anlaması ve katılımı arttı. Her içeriğin bir hafta boyunca tekrar edilmesini öneriyoruz.</p><p class="cite">Crawley ve ark., 1999, <i>Journal of Educational Psychology</i> · <a href="https://doi.org/10.1037/0022-0663.91.4.630" rel="noopener" target="_blank">doi</a></p></article>
       <article class="r-card reveal"><span class="r-tag">Birlikte izleme</span><h3>Soru sormak fark yaratıyor</h3><p>Videoyu durdurup çocuğa soru soran ebeveynlerin çocuklarında hikâyeyi anlama ve kelime öğrenme daha yüksek bulundu.</p><p class="cite">Strouse ve ark., 2013, <i>Developmental Psychology</i> · <a href="https://doi.org/10.1037/a0032463" rel="noopener" target="_blank">doi</a></p></article>
+      <article class="r-card reveal"><span class="r-tag">Ekransız etkinlik</span><h3>Ekrandan gerçek hayata</h3><p>Bebekler ve küçük çocuklar ekranda gördüklerini gerçek nesnelere aktarmakta zorlanabiliyor; tekrar ve yetişkin desteği bu aktarımı kolaylaştırıyor. Bu yüzden her içerik, somut nesnelerle yapılan bir görevle bitiyor.</p><p class="cite">Barr, 2010, <i>Developmental Review</i> · <a href="https://doi.org/10.1016/j.dr.2010.03.001" rel="noopener" target="_blank">doi</a></p></article>
+      <article class="r-card reveal"><span class="r-tag">Etkin öğrenme</span><h3>Etkin, anlamlı ve sosyal</h3><p>Çocuklar zihnen etkin oldukları, dikkatlerini verdikleri, kendi yaşamlarıyla bağ kurabildikleri ve başkalarıyla etkileşimde bulundukları durumlarda daha iyi öğreniyor. Soru anları, hareketler ve görevler bu dört ilke gözetilerek planlanıyor.</p><p class="cite">Hirsh-Pasek ve ark., 2015, <i>Psychological Science in the Public Interest</i> · <a href="https://doi.org/10.1177/1529100615569721" rel="noopener" target="_blank">doi</a></p></article>
+      <article class="r-card reveal"><span class="r-tag">Birlikte kullanım</span><h3>Yetişkinle birlikte izleme</h3><p>Çocuk ve yetişkinin aynı içeriği birlikte izleyip üzerine konuşması öğrenmeyi destekliyor. Her içeriğin ayrıntısındaki sorular ve görevler bunun için yazıldı.</p><p class="cite">Takeuchi ve Stevens, 2011, Joan Ganz Cooney Center · <a href="https://joanganzcooneycenter.org/wp-content/uploads/2011/12/jgc_coviewing_desktop.pdf" rel="noopener" target="_blank">rapor</a></p></article>
+      <article class="r-card reveal"><span class="r-tag">Ekran süresi</span><h3>Kısa ve nitelikli</h3><p>Dünya Sağlık Örgütü 2-4 yaş için hareketsiz ekran süresinin günde 1 saati geçmemesini, daha azının daha iyi olduğunu öneriyor. Amerikan Pediatri Akademisi de 2-5 yaş için nitelikli içeriklerin yetişkinle birlikte izlenmesini öneriyor.</p><p class="cite">WHO, 2019 · <a href="https://www.who.int/publications/i/item/9789241550536" rel="noopener" target="_blank">kılavuz</a> · AAP, 2016, <i>Pediatrics</i> · <a href="https://doi.org/10.1542/peds.2016-2591" rel="noopener" target="_blank">doi</a></p></article>
     </div>
   </div>
 </section>
@@ -400,11 +444,12 @@
   <div class="wrap narrow">
     <div class="sec-head center"><div><p class="kicker">SSS</p><h2>Sık sorulan sorular</h2></div></div>
     <div class="faq">
-      <details><summary>Klipler ücretsiz mi?</summary><p>Evet. Klipler YouTube'da, ekransız görevler bu sitede ücretsizdir.</p></details>
-      <details><summary>Klipler hangi yaş için?</summary><p>3-6 yaş için hazırlanıyor. Her klibin ayrıntısında önerilen yaş yazıyor; örneğin Yolcu Treni 1'den 10'a saydığı için 4 yaş ve üstü için öneriliyor.</p></details>
-      <details><summary>Okul öncesi programıyla uyumlu mu?</summary><p>Her klip, Millî Eğitim Bakanlığının okul öncesi eğitim programındaki bir öğrenme alanı dikkate alınarak planlanıyor ve bu alan klibin ayrıntısında belirtiliyor.</p></details>
-      <details><summary>Çocuğum günde ne kadar izlemeli?</summary><p>Aile ve Sosyal Hizmetler Bakanlığı 3 yaşına kadar ekrandan uzak durulmasını, 3 yaşta en fazla 30, 4 yaşta 40, 5 yaşta 50, 6 yaşta 60 dakika ekran süresini öneriyor. Bir iki klipten sonra ekranı kapatıp görevlere geçmenizi öneririz.</p></details>
-      <details><summary>Sınıfta kullanabilir miyim?</summary><p>Elbette. Klipleri ve ekransız görevleri sınıfınızda dilediğiniz gibi kullanabilirsiniz.</p></details>
+      <details><summary>İçerikleri kim hazırlıyor?</summary><p>İçerikler alan uzmanları tarafından hazırlanmaktadır. Şarkı sözleri, çizgi film senaryoları ve ekransız görevler okul öncesi eğitim programı ve ilgili araştırmalar dikkate alınarak yazılmaktadır.</p></details>
+      <details><summary>İçerikler ücretsiz mi?</summary><p>Evet. Şarkı ve çizgi filmler YouTube'da, ekransız görevler bu sitede ücretsizdir.</p></details>
+      <details><summary>İçerikler hangi yaş için?</summary><p>3-6 yaş için hazırlanıyor. Her içeriğin ayrıntısında önerilen yaş yazıyor; örneğin Yolcu Treni 1'den 10'a saydığı için 4 yaş ve üstü için öneriliyor.</p></details>
+      <details><summary>Okul öncesi programıyla uyumlu mu?</summary><p>Her içerik, Millî Eğitim Bakanlığının okul öncesi eğitim programındaki bir öğrenme alanı dikkate alınarak planlanıyor ve bu alan içeriğin ayrıntısında belirtiliyor.</p></details>
+      <details><summary>Çocuğum günde ne kadar izlemeli?</summary><p>Aile ve Sosyal Hizmetler Bakanlığı 3 yaşına kadar ekrandan uzak durulmasını, 3 yaşta en fazla 30, 4 yaşta 40, 5 yaşta 50, 6 yaşta 60 dakika ekran süresini öneriyor. Bir iki içerikten sonra ekranı kapatıp görevlere geçmenizi öneririz.</p></details>
+      <details><summary>Sınıfta kullanabilir miyim?</summary><p>Elbette. İçerikleri ve ekransız görevleri sınıfınızda dilediğiniz gibi kullanabilirsiniz.</p></details>
       <details><summary>Bu site çocuğumdan bilgi topluyor mu?</summary><p>Hayır. Sitede üyelik ya da form yok, çocuklardan bilgi istenmez. Ayrıntılar için <a href="kvkk.html">gizlilik sayfasına</a> bakabilirsiniz.</p></details>
     </div>
   </div>
@@ -422,7 +467,7 @@
       <img src="assets/karakterler/sikir_el_salliyor.webp" alt="" width="120" height="128" loading="lazy">
       <img src="assets/karakterler/kitir_el_salliyor.webp" alt="" width="120" height="128" loading="lazy">
     </div>
-    <h2>Yeni klipleri kaçırma!</h2>
+    <h2>Yeni içerikleri kaçırma!</h2>
     <p class="js-kanal-durum">Ben Tıkır YouTube kanalı çok yakında açılıyor.</p>
     <a class="btn btn-white js-kanal" href="#youtube"><span class="yt-ico" aria-hidden="true"></span><span class="js-kanal-txt">YouTube · Yakında</span></a>
   </div>
@@ -434,7 +479,7 @@
   <div class="wrap foot-in">
     <div class="foot-brand">
       <img src="logo.webp" alt="Ben Tıkır" width="120" height="90" loading="lazy">
-      <p>3-6 yaş çocuklar için özgün Türkçe şarkılar, klipler ve ekransız etkinlikler.</p>
+      <p>3-6 yaş çocuklar için özgün Türkçe şarkılar, çizgi filmler ve ekransız etkinlikler.</p>
     </div>
     <div><h4>Çocuklar için</h4><a href="index.html">Çocuk alanı</a><a href="index.html#sarkilar">Şarkılar</a><a href="index.html#oyunlar">Oyunlar</a></div>
     <div><h4>Büyükler için</h4><a href="#buyukler">Aileler ve öğretmenler</a><a href="#arastirma">Araştırmalar</a><a href="#sss">SSS</a></div>
@@ -443,7 +488,7 @@
   <p class="copy">© 2026 Ben Tıkır</p>
 </footer>
 
-<!-- Klip ayrıntısı -->
+<!-- İçerik ayrıntısı -->
 <dialog class="modal" id="modal" aria-labelledby="m-title">
   <button class="m-close" type="button" id="m-close" aria-label="Kapat">×</button>
   <div class="m-media" id="m-media"></div>
@@ -452,12 +497,13 @@
     <h3 id="m-title"></h3>
     <p id="m-ozet"></p>
     <div class="m-cols">
-      <div><h4>Bu klipte çocuklar</h4><ul class="ticks" id="m-ogren"></ul></div>
+      <div><h4>Bu içerikte çocuklar</h4><ul class="ticks" id="m-ogren"></ul></div>
       <div class="m-task"><h4>Şimdi sıra sende!</h4><p id="m-gorev"></p><p class="m-meb" id="m-meb"></p></div>
     </div>
   </div>
 </dialog>
 
+<script>window.ICERIKLER = [{"no": "01", "ad": "Yolcu Treni", "alt": "1'den 10'a sayalım!", "sure": "1:50", "seri": "sayilar", "tur": "Şarkı", "yas": "4+ yaş", "ozet": "Tıkır'ın treni kalkıyor! Her durakta bir yolcu biniyor; başını sallıyor, kanat çırpıyor, kollarını açıyor. Hareketleri yapıp yolcuları birlikte sayıyoruz.", "ogren": ["1'den 10'a kadar sayma", "Sayı ile miktarı eşleştirme", "Taklit ve hareket: baş sallama, kanat çırpma, kol açma"], "gorev": "10 oyuncağını sıraya diz. Trene bindirir gibi tek tek say.", "meb": "Matematik · MAB.1", "alan": ["Matematik", "Hareket ve Sağlık", "Müzik"], "konu": ["Sayma (1-10)", "Sayı ve miktar eşleştirme", "Taklit ve hareket", "Taşıtlar: tren"], "deger": []}, {"no": "02", "ad": "Kaç Elma Var?", "alt": "Göster Bul", "sure": "2:11", "seri": "sayilar", "tur": "Şarkı", "yas": "3+ yaş", "ozet": "Tıkır daldan elmaları topluyor, sepete koyuyor ve soruyor: Kaç tane? Parmaklarınla göster, kartını kaldır! Müzik durunca \"Don!\", kıpırdamak yok.", "ogren": ["0'dan 5'e kadar sayma ve sıfır kavramı", "Parmakla miktar gösterme", "Dinleme ve durma oyunu (Don!)"], "gorev": "Dört parmağını göster. Şimdi bir parmağını indir: kaç kaldı?", "meb": "Matematik", "alan": ["Matematik", "Müzik", "Hareket ve Sağlık"], "konu": ["Sayma (0-5)", "Sıfır kavramı", "Parmakla miktar gösterme", "Dinleme ve durma (öz düzenleme)"], "deger": []}, {"no": "03", "ad": "Hangisi Çok?", "alt": "Az mı, çok mu, eşit mi?", "sure": "2:32", "seri": "sayilar", "tur": "Şarkı", "yas": "3+ yaş", "ozet": "Misketler, balonlar, kurabiyeler... Tıkır ile iki grubu karşılaştırıyoruz: az mı, çok mu, yoksa eşit mi? Sağa bak, sola bak, sen de bul!", "ogren": ["Az, çok ve eşit kavramları", "İki grubu karşılaştırma", "Sağ ve sol yönleri"], "gorev": "Oyuncak arabalarını iki gruba ayır. Hangisinde çok, hangisinde az?", "meb": "Matematik", "alan": ["Matematik"], "konu": ["Az, çok, eşit", "Karşılaştırma", "Sağ ve sol (yön)"], "deger": []}, {"no": "04", "ad": "Tam Bana Göre!", "alt": "Büyük, orta, küçük", "sure": "2:26", "seri": "sayilar", "tur": "Şarkı", "yas": "3+ yaş", "ozet": "Tıkır eski bir sandık buluyor. İçinden üç şapka çıkıyor: biri çok büyük, biri çok küçük, biri tam orta! Sonra koltuklar, sonra yataklar...", "ogren": ["Büyük, orta, küçük kavramları", "Boyuta göre sıralama", "Büyük, orta ve küçük adımlarla hareket"], "gorev": "Üç bardağı büyükten küçüğe sırala.", "meb": "Matematik", "alan": ["Matematik", "Hareket ve Sağlık"], "konu": ["Büyük, orta, küçük", "Sıralama", "Boyut kavramı"], "deger": []}, {"no": "05", "ad": "Sonbahar Sepeti", "alt": "Topla, say!", "sure": "1:52", "seri": "sayilar", "tur": "Şarkı", "yas": "3+ yaş", "ozet": "Bahçede sonbahar var! Tıkır ve arkadaşları nar, ayva, armut, ceviz ve elma topluyor. Topla, topla, say, say, say; koy sepete, ne kolay!", "ogren": ["Sonbahar meyvelerini tanıma", "1'den 5'e kadar sayma", "Kokla, eğil, kopar gibi hareketler"], "gorev": "Mutfaktaki kâsede kaç meyve var? Birlikte sayın.", "meb": "Matematik · Fen", "alan": ["Matematik", "Fen"], "konu": ["Mevsimler: sonbahar", "Meyveler", "Sayma (1-5)", "Doğa"], "deger": []}, {"no": "06", "ad": "Lıkır Lıkır Süt", "alt": "Büyü, güçlen!", "sure": "1:36", "seri": "gunluk", "tur": "Şarkı", "yas": "3+ yaş", "ozet": "Tıkır sütü çok seviyor! Her gün süt içiyor, koşuyor, zıplıyor, güçleniyor. Lıkır ve Kıtır da kahvaltıya katılıyor.", "ogren": ["Sağlıklı beslenme alışkanlığı", "Günlük rutin: kahvaltıda süt", "Ritim ve tekrar ile dil gelişimi"], "gorev": "İki bardağa farklı miktarda su koyun. Hangisinde daha çok var?", "meb": "Sağlık · Günlük yaşam", "alan": ["Hareket ve Sağlık", "Türkçe", "Müzik"], "konu": ["Sağlıklı beslenme", "Kahvaltı", "Günlük rutin"], "deger": ["Sorumluluk"]}, {"no": "07", "ad": "Ellerimizi Yıkayalım", "alt": "El yıkama şarkısı", "sure": "2:06", "seri": "rutin", "tur": "Şarkı", "yas": "3+ yaş", "ozet": "Musluğu aç, ellerini ıslat; sabunla köpürt, ovala, durula ve kurula! Tıkır ve Gıcır el yıkamanın adımlarını şarkıyla gösteriyor. Tempo sakin; lavabo başında birlikte yapmak için uygun.", "ogren": ["El yıkamanın 5 adımı: ıslat, köpürt, ovala, durula, kurula", "Avuç içi, el üstü, parmak araları ve tırnaklar", "Köpürtürken musluğu kapatma"], "gorev": "Lavabonun başında şarkıyla birlikte ellerini yıka. İlk önce ne yaparız?", "meb": "Sağlık · Öz bakım", "alan": ["Hareket ve Sağlık"], "konu": ["Öz bakım", "El yıkama ve hijyen", "Su tasarrufu", "Günlük rutin"], "deger": ["Sorumluluk"]}, {"no": "09", "ad": "Tıkır ve Arkadaşları", "alt": "Kapıda kim var?", "sure": "2:12", "seri": "tanitim", "tur": "Kanal tanıtımı", "yas": "3+ yaş", "ozet": "Tık tık, kapı çalıyor! Lıkır, Kıtır, Gıcır, Pıtır, Hışır, Şıkır ve Kıkır geliyor. Her biri kendi sesiyle, kendi hareketiyle tanışıyor.", "ogren": ["Sekiz karakterle tanışma", "Sesleri ve isimleri eşleştirme", "Sayma, sorma ve dans"], "gorev": "En çok hangi arkadaşı sevdin? Onun hareketini yap!", "meb": "Dil · Hareket", "alan": ["Türkçe", "Müzik", "Hareket ve Sağlık"], "konu": ["Karakterlerle tanışma", "Sesler ve isimler", "Dans"], "deger": ["Arkadaşlık"]}, {"no": "10", "ad": "Günaydın!", "alt": "Nasıl selam verelim?", "sure": "2:14", "seri": "rutin", "tur": "Şarkı", "yas": "3+ yaş", "ozet": "Güne bir selamla başlayalım! El sallayarak, dans ederek, sessizce ya da arkadaşına sorup beşlik çakarak günaydın diyoruz.", "ogren": ["Güne selamlaşarak başlama", "Farklı selam biçimleri", "Beşlikten önce arkadaşına sorma"], "gorev": "Sınıftaki ya da evdeki arkadaşına kendi seçtiğin selamı ver.", "meb": "Sosyal-duygusal gelişim", "alan": ["Sosyal", "Müzik", "Hareket ve Sağlık"], "konu": ["Selamlaşma", "Nezaket", "İzin isteme", "Güne başlama rutini"], "deger": ["Saygı", "Sevgi"]}, {"no": "12", "ad": "Burada mısın?", "alt": "Resmini bul, mandalı tak, say!", "sure": "1:52", "seri": "rutin", "tur": "Şarkı", "yas": "3+ yaş", "ozet": "Sınıfta yoklama zamanı! Tıkır ve arkadaşları kendi resimlerini bulup ipe mandalla takıyor. Adı söylenen \"Burada!\" diyor, sonra hep birlikte sayıyoruz: Bugün kaç kişiyiz, kim yok?", "ogren": ["Adını duyunca \"Burada!\" deme", "Kendi resmini bulma ve mandalla asma", "Tek tek gösterip sayma, kim yok diye bakma"], "gorev": "Bugün kaç kişiyiz? Mandalları tek tek göster, birlikte say.", "meb": "Günlük rutin · Matematik", "alan": ["Sosyal", "Matematik"], "konu": ["Yoklama rutini", "Aidiyet", "Kendini tanıma", "Sayma"], "deger": ["Arkadaşlık"]}, {"no": "11", "ad": "Tıkır'la İlk Buluşma", "alt": "Yeni arkadaşlar, top oyunu", "sure": "2:55", "seri": "duygular", "tur": "Çizgi film", "yas": "3+ yaş", "ozet": "Tıkır parka topuyla geliyor ve birlikte oynayacak bir arkadaş arıyor. Pıtır ve Kıkır ile tanışıyor; çekingen Kıkır'a yer açıp sabırla bekliyorlar.", "ogren": ["Yeni bir arkadaşla tanışma", "Çekingen bir arkadaşa yer açma", "Sıra bekleme, birlikte çözüm bulma"], "gorev": "Bir arkadaşınla topu yuvarlayın; her atışta onun adını söyle.", "meb": "Sosyal-duygusal gelişim", "alan": ["Sosyal", "Türkçe"], "konu": ["Tanışma", "Çekingenlik ve utangaçlık", "Oyuna katma", "Sıra bekleme", "Temel duygular"], "deger": ["Arkadaşlık", "Sabır", "Empati", "Paylaşma"]}, {"no": "13", "ad": "Lıkır'ın Bulutu", "alt": "\"Yapma\" deyince dururuz", "sure": "2:55", "seri": "duygular", "tur": "Çizgi film", "yas": "3+ yaş", "ozet": "Tıkır, Lıkır ve Şıkır bahçede köpük balonu uçuruyor. Şıkır, Lıkır'ın komik sesini taklit etmeye devam edince Lıkır'ın keyfi kaçıyor. Arkadaşımız \"yapma\" dediğinde ne yaparız?", "ogren": ["Arkadaşımız \"yapma\" dediğinde durmak", "Özür dilemek ve biraz zaman tanımak", "Birlikte oynamanın keyfi"], "gorev": "Bir arkadaşınla oyna. O \"yapma\" derse hemen dur ve ona ne istediğini sor.", "meb": "Sosyal-duygusal gelişim", "alan": ["Sosyal", "Türkçe"], "konu": ["Akran zorbalığı: alay etme ve taklit", "\"Yapma\" deyince durmak", "Özür dileme", "Temel duygular: üzüntü, kırılma"], "deger": ["Saygı", "Empati", "Arkadaşlık"]}, {"no": "g10k", "ad": "10 Kasım", "alt": "Atam Her Gün Bizimle", "sure": "2:30", "seri": "gunler", "tur": "Çizgi film ve şarkı", "yas": "3+ yaş", "ozet": "Tıkır, Pıtır ve Lıkır bahçede yarıya indirilmiş bayrağı görüyor. Bugün 10 Kasım. Tıkır arkadaşlarına Atatürk'ü nasıl andığımızı anlatıyor: saat dokuzu beş geçe sirenler çalar, dimdik ve sessiz dururuz. Saygı duruşundan sonra üç arkadaş \"Atam Her Gün Bizimle\" şarkısını söylüyor.", "ogren": ["10 Kasım'da bayrağın neden yarıya indirildiği", "Saygı duruşu: dimdik ve sessiz durmak", "Atatürk'ü sevgiyle anmak"], "gorev": "Ailenle birlikte \"Atam Her Gün Bizimle\" şarkısını söyleyin.", "meb": "Belirli gün ve haftalar", "alan": ["Sosyal", "Müzik"], "konu": ["Belirli gün ve haftalar", "10 Kasım Atatürk'ü Anma", "Saygı duruşu", "Atatürk"], "deger": ["Saygı", "Sevgi", "Vatanseverlik"]}];</script>
 <script src="ayarlar.js"></script>
 <script src="app.js"></script>
 </body>

@@ -97,7 +97,8 @@
     $('#m-ozet').textContent = k.ozet;
     $('#m-ogren').innerHTML = k.ogren.map(function (o) { return '<li>' + esc(o) + '</li>'; }).join('');
     $('#m-gorev').textContent = k.gorev;
-    $('#m-meb').textContent = 'Okul öncesi programı · ' + k.meb;
+    $('#m-meb').textContent = 'Okul öncesi programı · ' + (k.alan && k.alan.length ? 'Öğrenme alanı: ' + k.alan.join(', ') : k.meb) +
+      (k.konu && k.konu.length ? ' · Konular: ' + k.konu.join(', ') : '') + (k.deger && k.deger.length ? ' · Değerler: ' + k.deger.join(', ') : '');
     if (modal.showModal) modal.showModal(); else modal.setAttribute('open', '');
   }
   function closeModal() { media.innerHTML = ''; if (modal.close) modal.close(); else modal.removeAttribute('open'); }
@@ -105,6 +106,54 @@
   $('#m-close').addEventListener('click', closeModal);
   modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
   modal.addEventListener('close', function () { media.innerHTML = ''; });
+
+  /* ---- İçerik Bul: öğretmenler için süzülebilir içerik veritabanı (window.ICERIKLER) ---- */
+  var DB = window.ICERIKLER || [], fl = $('#f-list');
+  if (fl && DB.length) {
+    var trn = function (s) {
+      return String(s || '').toLocaleLowerCase('tr').replace(/[ıi̇]/g, 'i').replace(/ş/g, 's').replace(/ğ/g, 'g').replace(/ü/g, 'u').replace(/ö/g, 'o').replace(/ç/g, 'c').replace(/â/g, 'a').replace(/[^a-z0-9 ]+/g, ' ');
+    };
+    var TUR = function (k) { return k.tur === 'Şarkı' ? 'Şarkı' : (/Çizgi film/.test(k.tur) ? 'Çizgi film' : k.tur); };
+    DB.forEach(function (k) {
+      k._ara = trn([k.ad, k.alt, k.ozet, (k.ogren || []).join(' '), (k.konu || []).join(' '), (k.alan || []).join(' '), (k.deger || []).join(' '),
+        (k.deger && k.deger.length ? 'değer değerler değerler eğitimi' : ''), SERI[k.seri] || '', k.tur, k.gorev].join(' '));
+    });
+    var uniq = function (f) { var s = {}; DB.forEach(function (k) { [].concat(f(k) || []).forEach(function (v) { if (v) s[v] = 1; }); }); return Object.keys(s).sort(function (a, b) { return a.localeCompare(b, 'tr'); }); };
+    var fill = function (id, vals, lab) { var sel = $(id); vals.forEach(function (v) { var o = document.createElement('option'); o.value = v; o.textContent = lab ? lab(v) : v; sel.appendChild(o); }); return sel; };
+    var sSeri = fill('#f-seri', uniq(function (k) { return k.seri; }), function (v) { return SERI[v] || v; });
+    var sAlan = fill('#f-alan', uniq(function (k) { return k.alan; }));
+    var sKonu = fill('#f-konu', uniq(function (k) { return k.konu; }));
+    var sDeg = fill('#f-deger', uniq(function (k) { return k.deger; }));
+    var sTur = fill('#f-tur', uniq(TUR));
+    var q = $('#f-q'), cnt = $('#f-count');
+    var run = function () {
+      var words = trn(q.value).split(' ').filter(function (w) { return w.length > 1; });
+      var res = DB.filter(function (k) {
+        if (sSeri.value && k.seri !== sSeri.value) return false;
+        if (sAlan.value && (k.alan || []).indexOf(sAlan.value) < 0) return false;
+        if (sKonu.value && (k.konu || []).indexOf(sKonu.value) < 0) return false;
+        if (sDeg.value && (k.deger || []).indexOf(sDeg.value) < 0) return false;
+        if (sTur.value && TUR(k) !== sTur.value) return false;
+        return words.every(function (w) { return k._ara.indexOf(w.length > 5 ? w.slice(0, w.length - 2) : w) >= 0; });
+      });
+      cnt.textContent = res.length ? res.length + ' içerik bulundu' : 'Bu aramaya uyan içerik bulunamadı. Başka bir sözcük deneyin ya da süzgeçleri temizleyin.';
+      fl.innerHTML = res.map(function (k, i) {
+        var tags = (k.konu || []).slice(0, 4).map(function (t) { return '<span class="tag">' + esc(t) + '</span>'; }).join('') +
+          (k.deger || []).map(function (t) { return '<span class="tag tag-d">' + esc(t) + '</span>'; }).join('');
+        return '<li><button type="button" class="f-item" data-i="' + DB.indexOf(k) + '">' +
+          '<img src="assets/klipler/' + k.no + '-k.webp" alt="" width="160" height="90" loading="lazy">' +
+          '<span class="f-body"><span class="chips"><span class="chip st-' + k.seri + '">' + esc(SERI[k.seri] || '') + '</span><span class="chip chip-ink">' + esc(TUR(k)) + '</span>' +
+          (k.alan || []).map(function (a) { return '<span class="chip">' + esc(a) + '</span>'; }).join('') + '</span>' +
+          '<span class="f-title">' + esc(k.ad) + '</span><span class="f-sub">' + esc(k.alt || '') + '</span>' +
+          '<span class="f-tags">' + tags + '</span></span></button></li>';
+      }).join('');
+    };
+    [q, sSeri, sAlan, sKonu, sDeg, sTur].forEach(function (el) { el.addEventListener(el === q ? 'input' : 'change', run); });
+    $$('.f-quick button').forEach(function (b) { b.addEventListener('click', function () { q.value = b.dataset.q; run(); }); });
+    $('#f-clear').addEventListener('click', function () { q.value = ''; [sSeri, sAlan, sKonu, sDeg, sTur].forEach(function (s) { s.value = ''; }); run(); });
+    fl.addEventListener('click', function (e) { var b = e.target.closest('.f-item'); if (b) openClip(DB[+b.dataset.i]); });
+    run();
+  }
 
   /* ---- Karakterler ---- */
   $$('.pal-btn').forEach(function (b) {

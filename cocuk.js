@@ -20,14 +20,14 @@
 
   /* ---- Konuşan karakterler: sesin şiddetine göre zıplar, söylediği balonda görünür ---- */
   var SOZ = {
-    tikir: [['tikir_karsilama_ilk', 'Tık tık! Kim o?<br>Ben Tıkır! Hoş geldin!'], ['tikir_tanitim', 'Ben Tıkır!<br>Sarı antenler, zıp zıp zıp!'], ['tikir_karsilama_sec', 'Haydi,<br>bir arkadaş seç!']],
+    tikir: [['tikir_hosgeldin', 'Tık tık!<br>Ben Tıkır! Hoş geldin!'], ['tikir_tanitim', 'Ben Tıkır!<br>Sarı antenler, zıp zıp zıp!'], ['tikir_karsilama_sec', 'Haydi,<br>bir arkadaş seç!']],
     pitir: [['pitir_tanitim', 'Ben Pıtır!<br>Pıtır pıtır, hep sayar!'], ['pitir_klip_yolcu_treni', 'Haydi,<br>yolcuları sayalım!']],
-    kikir: [['kikir_tanitim', 'Ben Kıkır!<br>Haydi, arkadaş olalım!'], ['sfx_kikirdama', 'Kıkır kıkır!']],
-    likir: [['likir_tanitim', 'Ben Lıkır!<br>Haydi, su içelim!'], ['sfx_damla_likir', 'Şıpır şıpır!']],
+    kikir: [['kikir_tanitim2', 'Ben Kıkır!<br>Kıkır kıkır, hep gülerim!'], ['sfx_kikirdama', 'Kıkır kıkır!']],
+    likir: [['likir_tanitim2', 'Ben Lıkır!<br>Lıkır lıkır lıkır!'], ['sfx_damla_likir', 'Lıkır lıkır!']],
     hisir: [['hisir_tanitim', 'Ben Hışır!<br>Haydi, birlikte arayalım!'], ['sfx_yaprak_hisir', 'Hışır hışır!']],
     sikir: [['sikir_tanitim', 'Ben Şıkır!<br>Haydi, dans et!']],
-    kitir: [['kitir_tanitim', 'Ben Kıtır!<br>Haydi, kahvaltıya!']],
-    gicir: [['gicir_tanitim', 'Ben Gıcır!<br>Haydi, ellerimizi yıkayalım!']]
+    kitir: [['kitir_tanitim2', 'Ben Kıtır!<br>Haydi, yemeğe!']],
+    gicir: [['gicir_tanitim2', 'Ben Gıcır!<br>Gıcır gıcır, tertemiz!']]
   };
   var ctx = null, an = null, buf = null, talking = null;
   function level() {
@@ -94,7 +94,7 @@
       requestAnimationFrame(loop);
     })(t0);
     au.addEventListener('ended', function () { stopTalk(el); });
-    au.play().catch(function () { setTimeout(function () { stopTalk(el); }, 1500); });
+    au.play().catch(function () { el._blocked = true; setTimeout(function () { stopTalk(el); }, 1500); });
     el._on = on;
   }
   function stopTalk(el) {
@@ -110,6 +110,41 @@
   });
   /* Tıkır ara ara kendiliğinden hareket eder */
   var star = $('.k-star');
+
+  /* ---- Açılışta Tıkır selam verir; sonra "bana dokun" işareti ---- */
+  /* Tarayıcılar sesi ilk dokunuştan önce çaldırmayabilir: o zaman selam ilk dokunuşta gelir. */
+  if (star) {
+    var tap = document.createElement('span'); tap.className = 'k-tap'; tap.setAttribute('aria-hidden', 'true');
+    tap.innerHTML = '<i></i><b>Bana dokun!</b>';
+    star.appendChild(tap);
+    var hint = function () {
+      var n = +(star.dataset.n || 0);
+      star.classList.toggle('show-tap', n >= 1 && n < SOZ.tikir.length && !star.classList.contains('talking'));
+    };
+    new MutationObserver(hint).observe(star, { attributes: true, attributeFilter: ['class', 'data-n'] });
+    var greeted = false;
+    try { greeted = sessionStorage.getItem('bt_selam') === '1'; } catch (e) {}
+    if (greeted) { star.dataset.n = 1; hint(); }
+    else {
+      try { sessionStorage.setItem('bt_selam', '1'); } catch (e) {}
+      setTimeout(function () {
+        speak(star);
+        setTimeout(function () {
+          if (!star._blocked) return;
+          star.dataset.n = 0;
+          var first = function (e) {
+            document.removeEventListener('pointerdown', first, true);
+            document.removeEventListener('keydown', first, true);
+            /* Tıkır'a ya da sesli bir düğmeye dokunduysa selamı atla (sesler üst üste binmesin) */
+            if (star.contains(e.target) || (e.target.closest && e.target.closest('button, a'))) return;
+            speak(star);
+          };
+          document.addEventListener('pointerdown', first, true);
+          document.addEventListener('keydown', first, true);
+        }, 400);
+      }, 700);
+    }
+  }
   if (star && !REDUCED) setInterval(function () {
     if (talking || document.hidden) return;
     star.classList.remove('wiggle'); void star.offsetWidth; star.classList.add('wiggle');
