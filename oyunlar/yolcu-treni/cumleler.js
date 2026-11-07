@@ -521,5 +521,197 @@ window.BT_CUMLELER = {
   "kim": "pitir",
   "ses": "ses/p_bravo_5.mp3",
   "zarf": "015762122378622785211100000001376324785223101114641111013200001100000000"
+ },
+ "p_esle_ben": {
+  "metin": "Her koltuğa bir yolcu oturtuyorum.",
+  "kim": "pitir",
+  "ses": "ses/p_esle_ben.mp3",
+  "zarf": "2697311244310137997300000233236752135420122000123211000"
+ },
+ "p_her_koltuk": {
+  "metin": "Her koltuğa bir yolcu oturtur musun?",
+  "kim": "pitir",
+  "ses": "ses/p_her_koltuk.mp3",
+  "zarf": "377310244201379732211355312453112210133221100110000"
+ },
+ "p_doldu": {
+  "metin": "Her koltukta bir yolcu var!",
+  "kim": "pitir",
+  "ses": "ses/p_doldu.mp3",
+  "zarf": "268620134310100122122223564101237985200000"
+ },
+ "p_bilet_kural": {
+  "metin": "Bu trene bileti olan yolcular biner. Bileti olanları bindirir misin?",
+  "kim": "pitir",
+  "ses": "ses/p_bilet_kural.mp3",
+  "zarf": "33113454332125421367678532443111379720112342100000000123442258868843553223333356533210111000"
+ },
+ "p_bilet_yok": {
+  "metin": "Bu yolcunun bileti yok. O, bir sonraki trene binecek.",
+  "kim": "pitir",
+  "ses": "ses/p_bilet_yok.mp3",
+  "zarf": "467886211233322334311345873100000000148997200000025520255333111113543331222112210000"
+ },
+ "p_bilet_bekle": {
+  "metin": "Bileti olmayan arkadaşlarımız bir sonraki trene binecek. Güle güle!",
+  "kim": "pitir",
+  "ses": "ses/p_bilet_bekle.mp3",
+  "zarf": "1343248852234456522344202542110111134321101244332211211464100000135873124796200"
+ },
+ "p_bilet_kac": {
+  "metin": "Kaç yolcunun bileti var? Doğru sayıya dokunur musun?",
+  "kim": "pitir",
+  "ses": "ses/p_bilet_kac.mp3",
+  "zarf": "4752256312232224531248973014784124534555323332221011000"
+ },
+ "p_bilet_ovgu": {
+  "metin": "Her bilete bir koltuk! Çok dikkatliydin.",
+  "kim": "pitir",
+  "ses": "ses/p_bilet_ovgu.mp3",
+  "zarf": "58842344322222137851122100000000000000000000000000000027730111267410111111000"
+ },
+ "p_bilet_kontrol": {
+  "metin": "Hmm, bir yolcunun bileti yok. Ona dokunup indirebilir misin?",
+  "kim": "pitir",
+  "ses": "ses/p_bilet_kontrol.mp3",
+  "zarf": "23333321001343478752233322243331269997200015666555323333542234544467532112331000"
+ },
+ "p_bes_tren": {
+  "metin": "Bu trende on koltuk var. Bazı koltuklar boş kalabilir. Kaç yolcu bineceğini dinler misin?",
+  "kim": "pitir",
+  "ses": "ses/p_bes_tren.mp3",
+  "zarf": "3311357852136897411355311210279851279862101453100147852255201354541111210000027620125521111111101221111111357531100011000"
+ },
+ "p_bos_kac": {
+  "metin": "Kaç koltuk boş kaldı? Doğru sayıya dokunur musun?",
+  "kim": "pitir",
+  "ses": "ses/p_bos_kac.mp3",
+  "zarf": "3762026732320257410279862122101356531244333324422334532210122000"
+ },
+ "p_az": {
+  "metin": "Trende biraz az yolcu var. Bir yolcu daha bindirir misin?",
+  "kim": "pitir",
+  "ses": "ses/p_az.mp3",
+  "zarf": "2478631111124773269741147741112488620000012321367410125666411101112321100000000"
+ },
+ "p_hepsi_10": {
+  "metin": "Hepsi birlikte on koltuk.",
+  "kim": "pitir",
+  "ses": "ses/p_hepsi_10.mp3",
+  "zarf": "344554334422210258898621477300100000"
+ },
+ "p_gecis_2": {
+  "metin": "Çok güzel saydın! Şimdi bileti olan yolcular geliyor.",
+  "kim": "pitir",
+  "ses": "ses/p_gecis_2.mp3",
+  "zarf": "487202225873137741010000000001222222334323655774124421147731121110000"
+ },
+ "p_gecis_3": {
+  "metin": "Harika! Şimdi on koltuklu, uzun bir tren geliyor.",
+  "kim": "pitir",
+  "ses": "ses/p_gecis_3.mp3",
+  "zarf": "58998532126987420000000000122112333587411366311110012210012223421220012553112211233200"
+ },
+ "p_bindi_3": {
+  "metin": "Üç yolcu bindi.",
+  "kim": "pitir",
+  "ses": "ses/p_bindi_3.mp3",
+  "zarf": "575101368863245322211121000"
+ },
+ "p_bindi_4": {
+  "metin": "Dört yolcu bindi.",
+  "kim": "pitir",
+  "ses": "ses/p_bindi_4.mp3",
+  "zarf": "48984102477631121111111221000"
+ },
+ "p_bindi_5": {
+  "metin": "Beş yolcu bindi.",
+  "kim": "pitir",
+  "ses": "ses/p_bindi_5.mp3",
+  "zarf": "46665225898742453222112332000"
+ },
+ "p_bindi_6": {
+  "metin": "Altı yolcu bindi.",
+  "kim": "pitir",
+  "ses": "ses/p_bindi_6.mp3",
+  "zarf": "799620134456421221111111221000"
+ },
+ "p_bindi_7": {
+  "metin": "Yedi yolcu bindi.",
+  "kim": "pitir",
+  "ses": "ses/p_bindi_7.mp3",
+  "zarf": "35544677899742232122222232000"
+ },
+ "p_bindi_8": {
+  "metin": "Sekiz yolcu bindi.",
+  "kim": "pitir",
+  "ses": "ses/p_bindi_8.mp3",
+  "zarf": "026522662146885212112221111000"
+ },
+ "p_bindi_9": {
+  "metin": "Dokuz yolcu bindi.",
+  "kim": "pitir",
+  "ses": "ses/p_bindi_9.mp3",
+  "zarf": "684236522467631121122111121000"
+ },
+ "p_bos_1": {
+  "metin": "Bir koltuk boş kaldı.",
+  "kim": "pitir",
+  "ses": "ses/p_bos_1.mp3",
+  "zarf": "212797322103697410148863111000"
+ },
+ "p_bos_2": {
+  "metin": "İki koltuk boş kaldı.",
+  "kim": "pitir",
+  "ses": "ses/p_bos_2.mp3",
+  "zarf": "011114773100013773001244310000"
+ },
+ "p_bos_3": {
+  "metin": "Üç koltuk boş kaldı.",
+  "kim": "pitir",
+  "ses": "ses/p_bos_3.mp3",
+  "zarf": "342002685200003784101466410000"
+ },
+ "p_bos_4": {
+  "metin": "Dört koltuk boş kaldı.",
+  "kim": "pitir",
+  "ses": "ses/p_bos_4.mp3",
+  "zarf": "5862015752000137730014642100000"
+ },
+ "p_bos_5": {
+  "metin": "Beş koltuk boş kaldı.",
+  "kim": "pitir",
+  "ses": "ses/p_bos_5.mp3",
+  "zarf": "5762014873111015741013775211000"
+ },
+ "p_bos_6": {
+  "metin": "Altı koltuk boş kaldı.",
+  "kim": "pitir",
+  "ses": "ses/p_bos_6.mp3",
+  "zarf": "797312212673110015631002553111000"
+ },
+ "p_bos_7": {
+  "metin": "Yedi koltuk boş kaldı.",
+  "kim": "pitir",
+  "ses": "ses/p_bos_7.mp3",
+  "zarf": "12331478411100378410147752111000"
+ },
+ "k_bos_bitti": {
+  "metin": "Hi hi! Ben bindirdim. Her koltukta bir yolcu var mı acaba?",
+  "kim": "kikir",
+  "ses": "ses/k_bos_bitti.mp3",
+  "zarf": "00001367664100000000000027962024311377324410000000000000268731135410100377311232477531123478631122211365464100"
+ },
+ "k_bilet_bitti": {
+  "metin": "Hi hi! Ben bindirdim. Herkesin bileti var mı acaba?",
+  "kim": "kikir",
+  "ses": "ses/k_bilet_bitti.mp3",
+  "zarf": "7746620000001100158841122212786356300000000146530144211111113652112467532466412563453000"
+ },
+ "t_secim3": {
+  "metin": "Bugün Pıtır'ın treninde yolcu sayacağız. Hangi treni seçersin?",
+  "kim": "tikir",
+  "ses": "ses/t_secim3.mp3",
+  "zarf": "37633653210121145554214665444444678888863562145774258852000000000037875221269854432342147997310121000"
  }
 };

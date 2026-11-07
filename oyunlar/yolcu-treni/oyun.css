@@ -107,3 +107,27 @@
 .bilet.merkez{left:355px;top:250px;transform:scale(1.9)}
 .bilet.tam.merkez{animation:none}
 .bilet.tam.merkez .yer.dolu{animation:damga .5s cubic-bezier(.3,1.6,.5,1) 3}
+
+/* v9: bilet basamağı, boş koltuk (parça-bütün), üç seviye kartı */
+.bt-seviye{width:300px}
+.bt-seviye svg{width:270px;height:121px}
+.ybilet{position:absolute;left:50%;width:54px;height:37px;margin-left:-27px;z-index:2;pointer-events:none;animation:ybilet 2.2s ease-in-out infinite;filter:drop-shadow(0 3px 2px rgba(42,35,69,.25))}
+.ybilet svg,.bilet-yer svg{width:100%;height:100%;display:block}
+@keyframes ybilet{50%{transform:translateY(-6px) rotate(-6deg)}}
+.yolcu.surukleniyor .ybilet{animation:none}
+.bilet-yer{position:absolute;left:50%;top:-33px;width:42px;height:29px;margin-left:-21px;border-radius:6px;background:#FFF9F0;box-shadow:0 0 0 3px #FFF9F0;transition:transform .3s var(--ease)}
+.bilet-yer svg{opacity:.28;filter:grayscale(1)}
+.bilet-yer::after{content:"";position:absolute;inset:-1px;border:3px dashed #3B3355;border-radius:6px}
+.koltuk.bilet-dolu .bilet-yer{background:none;box-shadow:none}
+.koltuk.bilet-dolu .bilet-yer svg{opacity:1;filter:none}
+.koltuk.bilet-dolu .bilet-yer{transform:scale(1.12)}
+.koltuk.bilet-dolu .bilet-yer::after{display:none}
+.koltuk.bos-parla::before{content:"";position:absolute;inset:2px;border-radius:12px;background:rgba(248,216,106,.55);box-shadow:0 0 0 5px rgba(248,216,106,.6);animation:bosparla 1.2s ease-in-out infinite}
+@keyframes bosparla{50%{background:rgba(248,216,106,.2);box-shadow:0 0 0 9px rgba(248,216,106,.3)}}
+.yolcu.hayir .ic{animation:hayir .6s ease-in-out}
+@keyframes hayir{20%{transform:rotate(-7deg)}40%{transform:rotate(6deg)}60%{transform:rotate(-4deg)}80%{transform:rotate(2deg)}}
+.yolcu.elsalla .ic{animation:elsalla .8s ease-in-out 3}
+@keyframes elsalla{25%{transform:rotate(-8deg) translateY(-8px)}75%{transform:rotate(8deg) translateY(-8px)}}
+.tren.dolu-parla svg.govde{animation:doluparla .6s ease}
+@keyframes doluparla{50%{filter:drop-shadow(0 0 14px rgba(248,216,106,.95))}}
+.kartlar.ust{top:122px}
