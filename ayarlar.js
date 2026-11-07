@@ -39,6 +39,8 @@ window.BENTIKIR = {
   */
   OYUNLAR: [
     { ad: "Yolcu Treni", aciklama: "Pıtır'la trene yolcu bindir, birlikte sayın.", adres: "oyunlar/yolcu-treni/",
-      gorsel: "oyunlar/yolcu-treni/kapak.webp", karakter: "pitir", yas: "3-6 yaş", seri: "sayilar" }
+      gorsel: "oyunlar/yolcu-treni/kapak.webp", karakter: "pitir", yas: "3-6 yaş", seri: "sayilar" },
+    { ad: "Kıtır'ın Simit Fırını", aciklama: "Kıtır'la arkadaşların siparişlerini sayarak hazırlayalım.", adres: "oyunlar/simit-firini/",
+      gorsel: "oyunlar/simit-firini/kapak.webp", karakter: "kitir", yas: "3-6 yaş", seri: "sayilar" }
   ]
 };
