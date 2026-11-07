@@ -1,4 +1,4 @@
-/* Ben Tıkır · Oyun çatısı v1 (6 Kasım 2026)
+/* Ben Tıkır · Oyun çatısı v1.5 (7 Kasım 2026: seviyeSec isteğe bağlı seviye listesi alır; v1.4: sesler asla üst üste binmez, geç yüklenen ses erken kesilmez, sesler sırayla yüklenir; v1.3: ses bekçisi; v1.2: serp, blop efektleri. v1.1, 6 Kasım akşam: Kıtır, Lıkır, Gıcır, Hışır ağızları; zil, fırın, kapak efektleri; seviye kartına özel çizim)
    Her oyun bu dosyayı yükler ve Cati.baslat({...}) çağırır.
    Çatının yaptıkları: sahneyi ekrana sığdırma, başlangıç ekranı (Oyna + müzik/efekt/konuşma/altyazı
    düğmeleri), seviye seçimi (Minik/Büyük, cihazda hatırlanır), sesli cümleler ve altyazı,
@@ -59,14 +59,35 @@
     return onbellek[src];
   }
   function sesCal(src) {
+    /* Önceki ses hâlâ çalıyorsa sustur: iki ses asla üst üste binmesin. */
+    if (calan) { try { calan.pause(); } catch (e) {} if (calan._bitir) calan._bitir(); }
     return new Promise(function (bitti) {
-      var a = sesNesnesi(src), tamam = false;
-      function son() { if (tamam) return; tamam = true; a.removeEventListener('ended', son); a.removeEventListener('error', son); if (calan === a) calan = null; bitti(); }
-      a.addEventListener('ended', son); a.addEventListener('error', son);
+      var a = sesNesnesi(src), tamam = false, bekci;
+      function son(zorla) {
+        if (tamam) return; tamam = true; clearInterval(bekci);
+        a.removeEventListener('ended', son); a.removeEventListener('error', son);
+        if (zorla) { try { a.pause(); } catch (e) {} }
+        a._bitir = null; if (calan === a) calan = null; bitti();
+      }
+      a._bitir = function () { son(true); };
+      a.addEventListener('ended', function () { son(false); }, { once: true }); a.addEventListener('error', function () { son(false); }, { once: true });
       try { a.currentTime = 0; } catch (e) {}
       calan = a;
       var p = a.play();
-      if (p && p.catch) p.catch(function () { setTimeout(son, 900); });
+      if (p && p.catch) p.catch(function () { setTimeout(function () { son(true); }, 900); });
+      /* Bekçi: ses başlamazsa ya da takılırsa oyun durmasın.
+         Süre, sesin gerçekten çalmaya başladığı andan sayılır (yavaş yüklenen ses erken kesilmez).
+         Hiç başlamazsa 10 sn sonra, başladıktan sonra donarsa 4 sn sonra susturulup geçilir. */
+      var basladi = 0, bekleme = 0, son0 = -1, ayni = 0;
+      bekci = setInterval(function () {
+        if (tamam) { clearInterval(bekci); return; }
+        if (K.durdumu && K.durdumu()) return;
+        if (!basladi) { if (a.currentTime > 0) basladi = 1; else { bekleme += 400; if (bekleme > 10000) son(true); return; } }
+        basladi += 400;
+        if (a.currentTime === son0 && !a.ended) ayni += 400; else { ayni = 0; son0 = a.currentTime; }
+        var sure = isFinite(a.duration) && a.duration > 0 ? a.duration * 1000 : 15000;
+        if (basladi > sure + 2500 || ayni > 4000) son(true);
+      }, 400);
     });
   }
 
@@ -102,7 +123,11 @@
     pitir_on:          { b: [216, 336, 309, 368], w: 524, h: 600, t1: '#fed97e', t2: '#fed36d', c: '#7A4E1E' },
     pitir_el_salliyor: { b: [216, 335, 308, 380], w: 550, h: 600, t1: '#fed97f', t2: '#fed368', c: '#7A4E1E' },
     kikir_on:          { b: [224, 327, 318, 358], w: 542, h: 600, t1: '#fec1d4', t2: '#feb8ce', c: '#8A3456' },
-    tikir_on:          { b: [231, 273, 329, 307], w: 560, h: 571, t1: '#8fe3da', t2: '#86e0d6', c: '#1F6A66' }
+    tikir_on:          { b: [231, 273, 329, 307], w: 560, h: 571, t1: '#8fe3da', t2: '#86e0d6', c: '#1F6A66' },
+    kitir_on:          { b: [232, 294, 327, 328], w: 560, h: 574, t1: '#edc887', t2: '#e9c27d', c: '#6A4520' },
+    likir_on:          { b: [224, 331, 316, 358], w: 540, h: 600, t1: '#b0ddf9', t2: '#a5d6fa', c: '#2E5F8A' },
+    gicir_on:          { b: [224, 330, 317, 359], w: 540, h: 600, t1: '#f6f1e3', t2: '#f2eedd', c: '#5A4A38' },
+    hisir_on:          { b: [209, 347, 297, 373], w: 507, h: 600, t1: '#afe394', t2: '#a6dd86', c: '#3D6B2A' }
   };
   K.AGIZ = AGIZ;
   function agizKur(govde) {
@@ -186,6 +211,11 @@
       case 'fanfar': [[523,0],[659,.12],[784,.24],[1047,.4],[784,.58],[1047,.7]].forEach(function (n) { ton(t + n[1], n[0], n[1] > .6 ? 0.6 : 0.22, 'triangle', 0.15); ton(t + n[1], n[0] * 2, 0.12, 'sine', 0.04); });
         for (var j = 0; j < 6; j++) ton(t + 0.85 + j * 0.06, 1500 + j * 260, 0.18, 'sine', 0.05); break;
       case 'damga': gurultu(t, 0.12, 700, 1.0); ton(t, 120, 0.18, 'sine', 0.5, 60); ton(t + 0.08, 1320, 0.25, 'triangle', 0.1); break;
+      case 'serp': for (var j = 0; j < 7; j++) gurultu(t + j * 0.06, 0.05, 5200, 0.18); break;
+      case 'blop': ton(t, 420, 0.18, 'sine', 0.22, 140); break;
+      case 'zil': ton(t, 1568, 0.9, 'sine', 0.22); ton(t, 3136, 0.5, 'sine', 0.06); ton(t + 0.25, 1568, 0.8, 'sine', 0.16); ton(t + 0.25, 3136, 0.4, 'sine', 0.05); break;
+      case 'firin': gurultu(t, 1.2, 600, 0.35); ton(t, 90, 1.0, 'sine', 0.25, 60); break;
+      case 'kapak': gurultu(t, 0.08, 1800, 0.6); ton(t, 220, 0.12, 'square', 0.05, 160); break;
       case 'cuf': for (var i = 0; i < 4; i++) gurultu(t + i * 0.22, 0.16, 2400, 0.35); break;
     }
   };
@@ -291,9 +321,9 @@
       var p = perde('bt-seviye'), kart = el('div', 'bt-kart');
       var onceki = oku('bt_seviye_' + cfg.id);
       var sira = el('div', 'bt-seviyeler');
-      [['minik', 'Minik', '3-4 yaş', 1], ['buyuk', 'Büyük', '5-6 yaş', 2]].forEach(function (s) {
-        var b = el('button', 'bt-seviye' + (onceki === s[0] ? ' onceki' : ''), treneCiz(s[3]) + '<span class="ad">' + s[1] + '</span><span class="yas">' + s[2] + '</span>');
-        b.setAttribute('aria-label', s[1] + ' tren, ' + s[2]);
+      ((secenekler && secenekler.seviyeler) || [['minik', 'Minik', '3-4 yaş', 1], ['buyuk', 'Büyük', '5-6 yaş', 2]]).forEach(function (s) {
+        var b = el('button', 'bt-seviye' + (onceki === s[0] ? ' onceki' : ''), (secenekler && secenekler.ciz ? secenekler.ciz(s[3]) : treneCiz(s[3])) + '<span class="ad">' + s[1] + '</span><span class="yas">' + s[2] + '</span>');
+        b.setAttribute('aria-label', s[1] + ' ' + (secenekler && secenekler.ad ? secenekler.ad : 'tren') + ', ' + s[2]);
         b.addEventListener('click', function () { K.efekt('secim'); yaz('bt_seviye_' + cfg.id, s[0]); K.seviye = s[0]; kapa(p); setTimeout(function () { p.remove(); }, 300); bitti(s[0]); });
         sira.appendChild(b);
       });
@@ -316,7 +346,7 @@
       var p = perde('bt-bitis'), kart = el('div', 'bt-kart');
       var cik = el('div', 'bt-cikartma', '<img src="' + (b.cikartma || cfg.evSahibiGorsel) + '" alt="">');
       kart.appendChild(cik);
-      if (b.aile) kart.appendChild(el('div', 'bt-aile', '<b>Aileye not:</b> ' + b.aile));
+      if (b.aile) kart.appendChild(el('div', 'bt-aile', '<b>' + (b.notBaslik || 'Aileye ve eğitimciye not:') + '</b> ' + b.aile));
       var dg = el('div', 'bt-bitis-dugmeler');
       function dugme(etiket, ik, renk, fn, href) {
         var d = el(href ? 'a' : 'button', 'bt-buyuk-dugme', '<span class="ik" style="background:' + renk + '">' + IK[ik] + '</span>' + etiket);
@@ -375,13 +405,28 @@
     bk.appendChild(oy); bk.appendChild(ayarDugmeleri()); bas.appendChild(bk); ac_(bas);
     oy.addEventListener('click', function () {
       baglam(); K.efekt('secim');
-      Object.keys(onbellek).forEach(function (k) { onbellek[k].load(); });
+      /* Sesleri sırayla, aynı anda en çok 4 tane yükle: ilk cümleler yavaş bağlantıda da hemen gelsin */
+      (function () {
+        var kuyruk = Object.keys(onbellek), aktif = 0;
+        function sonraki() {
+          while (aktif < 4 && kuyruk.length) {
+            var a = onbellek[kuyruk.shift()]; aktif++;
+            (function (a) {
+              var bitti = false;
+              function tamam() { if (bitti) return; bitti = true; aktif--; a.removeEventListener('canplaythrough', tamam); a.removeEventListener('error', tamam); sonraki(); }
+              a.addEventListener('canplaythrough', tamam); a.addEventListener('error', tamam); setTimeout(tamam, 6000);
+              if (a.readyState >= 4) tamam(); else if (a.networkState !== 2) a.load();
+            })(a);
+          }
+        }
+        sonraki();
+      })();
       kapa(bas); setTimeout(function () { bas.remove(); }, 300);
       Promise.resolve(c.oyun(K)).catch(function (e) { console.error(e); });
     });
 
     var cev = el('div'); cev.id = 'bt-cevir';
-    cev.innerHTML = '<div class="tel"></div><p>Telefonunu yan çevir,<br>tren sığsın!</p>';
+    cev.innerHTML = '<div class="tel"></div><p>Telefonunu yan çevir,<br>' + (c.cevirMetni || 'tren sığsın!') + '</p>';
     var yine = el('button', null, 'Böyle devam et'); yine.addEventListener('click', function () { document.body.classList.add('bt-dik-tamam'); });
     cev.appendChild(yine); document.body.appendChild(cev);
 
