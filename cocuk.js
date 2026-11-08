@@ -151,7 +151,14 @@
   }, 5200);
 
   /* ---- Kapılar: dokununca ses ---- */
-  $$('.k-door').forEach(function (d) { d.addEventListener('click', function () { play(/oyun/.test(d.className) ? 'tikir_menu_oyna' : (/sarki|cf/.test(d.className) ? 'tikir_menu_izle' : 'sfx_dokunma')); }); });
+  /* Kapılar: Tıkır kapının adını söyler */
+  var KAPI_SES = { 'd-sarki': 'tikir_kapi_sarkilar', 'd-cf': 'tikir_kapi_cizgifilm', 'd-oyun': 'tikir_kapi_oyunlar', 'd-gun': 'tikir_kapi_gunler' };
+  $$('.k-door').forEach(function (d) {
+    d.addEventListener('click', function () {
+      for (var c in KAPI_SES) { if (d.classList.contains(c)) { play(KAPI_SES[c]); return; } }
+      play('sfx_dokunma');
+    });
+  });
 
   /* ---- Karakter şeridi ---- */
   var strip = $('#strip');
