@@ -181,7 +181,7 @@
   /* Yeni tür eklemek için bu listeye bir satır eklemek yeterli. "hep: true" olanlar oyunu olmasa da "Yakında" olarak görünür. */
   var SERILER = [
     { id: 'sayilar',   ad: 'Sayılar',                kim: ['pitir'],                   renk: '#FFB892', hep: true },
-    { id: 'merak',     ad: 'Merak ve Fen',           kim: ['hisir'],                   renk: '#AEDD6F', hep: true },
+    { id: 'merak',     ad: 'Fen ve Doğa',            kim: ['hisir'],                   renk: '#AEDD6F', hep: true },
     { id: 'gunluk',    ad: 'Günlük Hayat',           kim: ['likir', 'gicir', 'kitir'], renk: '#96D3FF', hep: true },
     { id: 'ritim',     ad: 'Ritim ve Hareket',       kim: ['sikir'],                   renk: '#C7B2F5', hep: true },
     { id: 'duygular',  ad: 'Duygular ve Arkadaşlık', kim: ['kikir'],                   renk: '#FFB8D4', hep: true },
