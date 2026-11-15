@@ -248,3 +248,10 @@ a{color:inherit}
 @keyframes k-ripple{from{transform:scale(1);opacity:.9}to{transform:scale(3);opacity:0}}
 @media (prefers-reduced-motion:reduce){.k-tap i::before,.k-tap i::after{animation:none}}
 @media (max-width:700px){.k-tap{font-size:15px;bottom:2%}}
+/* v34: önemli günler — tarih rozeti ve "Yakında" günleri */
+.k-date{position:absolute;z-index:2;left:8px;top:8px;display:flex;flex-direction:column;align-items:center;min-width:52px;padding:5px 8px 4px;background:#fff;color:var(--ink);border-radius:14px;box-shadow:0 3px 0 rgba(42,35,69,.35);font:800 11px/1 var(--head);text-transform:uppercase;letter-spacing:.03em}
+.k-date b{font:800 22px/1 var(--head);color:#E8613C;letter-spacing:0}
+.k-day.is-soon .k-thumb{background:var(--c)}
+.k-day.is-soon .k-thumb img{filter:none;height:88%}
+.k-day:not(.is-soon) .k-thumb{display:block;background:none}
+.k-day:not(.is-soon) .k-thumb img{height:100%;width:100%;max-width:none;object-fit:cover}
