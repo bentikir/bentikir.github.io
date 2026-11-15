@@ -691,3 +691,10 @@ h2{letter-spacing:-.015em}
 .grid5{grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
 @media (max-width:900px){.f-selects{grid-template-columns:repeat(2,minmax(0,1fr))}.f-clear{grid-column:1/-1}}
 @media (max-width:560px){.f-item img{width:96px;height:54px}.f-title{font-size:17px}}
+/* v33: önemli günler — hazır içerikler üst sırada eşit, hazırlananlar alt sırada */
+.days{grid-template-columns:repeat(6,1fr)}
+.days .day{grid-column:span 2}
+.days .day-ready{grid-column:span 3}
+.day:first-child .clip-title,.day-ready .clip-title{font-size:26px}
+@media (max-width:1100px){.days{grid-template-columns:1fr 1fr}.days .day,.days .day-ready{grid-column:auto}}
+@media (max-width:600px){.days{grid-template-columns:1fr}}

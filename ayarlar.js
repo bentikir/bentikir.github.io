@@ -24,7 +24,8 @@ window.BENTIKIR = {
     "12": "",  // Burada mısın?
     "11": "nOvb18hwPps",  // Çizgi film 1: Tıkır'la İlk Buluşma
     "13": "",  // Çizgi film 2: Lıkır'ın Bulutu
-    "g10k": "CGEb7UeHkrQ" // Önemli günler: 10 Kasım, Atam Her Gün Bizimle
+    "g10k": "CGEb7UeHkrQ", // Önemli günler: 10 Kasım, Atam Her Gün Bizimle
+    "g20k": "EzcE4Z_bw_Q"  // Önemli günler: 20 Kasım Dünya Çocuk Hakları Günü
   },
 
   /* 3) OYUNLAR: "Tıkır ve arkadaşları ile oyunlar" bölümü.
